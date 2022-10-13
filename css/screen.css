@@ -272,11 +272,28 @@ input::placeholder {
     padding: var(--global-whitespace) var(--global-whitespace) 0;
 }
 
-.o-row--login {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
+.o-row-header {
+    border-bottom: 0.3px solid #0D141A;
+    border-bottom: 1px solid rgba(13, 26, 26, .1);
+
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 24px;
+    padding-top: 24px;
+
+    /* Background color */
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Set element over other elements */
+    z-index: 50;
+    /* Margin under border */
+    margin-bottom: 48px;
+    /* Stick to top */
+    position: sticky;
+    top: 0;
+    /* Set opacity to 0.5 */
+
 }
+
 
 /* size modifiers */
 
@@ -530,37 +547,92 @@ input::placeholder {
 #COMPONENTS
 \*------------------------------------*/
 
+/* 
+    Component: Nav
+    --- 
+    Main nav of site
+*/ 
+
+.c-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.c-header__nav {
+    display: none;
+}
+
+.c-header__mobile-nav-trigger {
+    display: block;
+}
+
+
+@media (min-width: 992px) {
+    .c-header__nav {
+        display: block;
+    }
+
+    .c-header__mobile-nav-trigger {
+        display: none;
+    }
+}
+
 /*
-    Component: Logo
+    Component: Nav
     ---
-    Website main logo
+    Main navigation of the site
 */
 
-.c-logo {
-    --logo__path--1--Fill: var(--global-color-neutral-xxxx-dark);
-    --logo__path--2--Fill: var(--global-color-alpha);
-    --logo__path--3--Fill: var(--global-color-alpha-x-dark);
-    height: var(--global-whitespace);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: var(--global-whitespace-xl);
+.c-nav {
+    font-size: 16px;
+    line-height: 24px;
 }
 
-.c-logo__symbol {
-    height: 100%;
+
+
+.c-nav__link {
+    text-decoration: none;
+    font-weight: 500;
+    display: block;
+    font-size: 16px;
+
 }
 
-.c-logo__path--1 {
-    fill: var(--logo__path--1--Fill);
+.c-nav__link,
+.c-nav__link:visited,
+.c-nav__link:active {
+    color: #0D121A;
 }
 
-.c-logo__path--2 {
-    fill: var(--logo__path--2--Fill);
+.c-nav__link--meta,
+.c-nav__link--meta:visited,
+.c-nav__link--meta:active {
+    text-decoration: none;
+    color: #006AFF;
 }
 
-.c-logo__path--3 {
-    fill: var(--logo__path--3--Fill);
+
+.c-nav__link:hover,
+.c-nav__link:focus {
+    color: #0055CC;
+}
+
+@media (min-width: 992px) {
+    .c-nav__list {
+        display: flex;
+        gap: 32px;
+    }
+
+    .c-nav__link {
+        padding: 8px 16px;
+    }
+
+}
+
+.c-nav__link_active {
+    color: #0055CC !important;
 }
 
 /*
