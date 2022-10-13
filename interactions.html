@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Blockport - Custom input types</title>
+    <meta name="description" content="This is my HTML5 boilerplate.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="msapplication-TileColor" content="#3385FF">
+    <meta name="theme-color" content="#3385FF">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#3385FF">
+
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/screen.css">
+</head>
+
+<body>
+    <section class="o-row o-row--lg o-row--login o-row--beta">
+        <div class="o-container u-max-width-xs">
+            <form class="c-card" action="#">
+                <div class="c-card__body">
+                    <h2 class="c-card__title">
+                        Micro interactions
+                    </h2>
+                    <div class="o-section">
+                        <h5>
+                            Floating labels
+                        </h5>
+                        <p class="c-form-field">
+                            <label class="c-label" for="username">
+                                Email
+                            </label>
+                            <input class="c-input" type="email" name="username"
+                                   id="username"
+                                   required>
+                        </p>
+                    </div>
+                    <div class="o-section">
+                        <h5>
+                            Toggle password
+                        </h5>
+                        <p class="c-form-field">
+                            <label class="c-label" for="password">
+                                Password
+                            </label>
+                            <span class="c-toggle-password-container">
+                                <input class="c-input" type="password"
+                                       name="password" id="password" required>
+                                <span class="c-toggle-password">
+                                    <input class="c-toggle-password__checkbox"
+                                           type="checkbox" id="togglePassword">
+                                    <label class="c-toggle-password__label"
+                                           for="togglePassword">
+                                        <svg class="c-toggle-password__icon c-toggle-password__icon--hide"
+                                             xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 20 20">
+                                            <path
+                                                  d="M19.009,73.18l-1.77,1.78a3.908,3.908,0,0,0-1.037-.137,4,4,0,0,0-3.857,5.065l-.007-.028-2.76,2.75A11.106,11.106,0,0,1,6.4,78.82,11.014,11.014,0,0,1,19.076,73.2L19,73.18Zm3.8,1.85a11.163,11.163,0,0,1,3.2,3.79,11.014,11.014,0,0,1-12.7,5.622l.077.018,1.77-1.78a3.907,3.907,0,0,0,1.037.137,4,4,0,0,0,3.857-5.065l.007.028,2.76-2.75Zm-.25-3.99,1.42,1.42L9.839,86.6l-1.42-1.42Z"
+                                                  transform="translate(-6.199 -68.82)" />
+                                        </svg>
+                                        <svg class="c-toggle-password__icon c-toggle-password__icon--show"
+                                             xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 20 20">
+                                            <path
+                                                  d="M6.4,133.876a11,11,0,0,1,19.571-.061l.029.061a11,11,0,0,1-19.571.061l-.029-.061Zm9.8,4a4,4,0,1,0,0-8h0a4,4,0,0,0,0,8Zm0-2a2,2,0,0,1,0-4h0a2,2,0,1,1,0,4Z"
+                                                  transform="translate(-6.2 -123.876)" />
+                                        </svg>
+                                        <span class="o-hide-accessible">
+                                            Show password
+                                        </span>
+                                    </label>
+                                </span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="o-section">
+                        <h5>
+                            Like this excercise!
+                        </h5>
+                        <p>
+                            <input type="checkbox" />
+                            <label>
+                                <svg
+                                     xmlns="http://www.w3.org/2000/svg"
+                                     xmlns:xlink="http://www.w3.org/1999/xlink"
+                                     version="1.1"
+                                     viewBox="0 0 510 510"
+                                     xml:space="preserve">
+                                    <path
+                                          d="M255,489.6l-35.7-35.7C86.7,336.6,0,257.55,0,160.65C0,81.6,61.2,20.4,140.25,20.4c43.35,0,86.7,20.4,114.75,53.55 C283.05,40.8,326.4,20.4,369.75,20.4C448.8,20.4,510,81.6,510,160.65c0,96.9-86.7,175.95-219.3,293.25L255,489.6z" />
+                                </svg>
+                            </label>
+                        </p>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
