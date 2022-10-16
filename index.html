@@ -17,11 +17,18 @@
 
     <link rel="stylesheet" href="css/normalize.css" />
     <link rel="stylesheet" href="css/screen.css" />
+
+    <script src="/script/app.js"></script>
+
+
   </head>
   <body>
+    <!--Header part -->
     <header class="o-row o-row-header">
       <div class="o-container">
         <div class="c-header">
+          <!--Logo-->
+          
           <h1 class="c-logo u-mb-clear">test</h1>
           <div class="c-header__nav">
             <nav class="c-nav">
@@ -29,52 +36,50 @@
                 <li class="c-nav__item">
                   <a class="js-index c-nav__link" href="./index.html">Home</a>
                 </li>
-                <li class="c-nav__item">
-                  <a class="js-pilot c-nav__link" href="./pilots.html"
-                    >Pilots</a
-                  >
-                </li>
-                <li class="c-nav__item">
-                  <a class="js-wegingen c-nav__link" href="./wegingen.html"
-                    >Measurements</a
-                  >
-                </li>
-                <li class="c-nav__item">
-                  <a class="js-historiek c-nav__link" href="./historiek.html"
-                    >History</a
-                  >
-                </li>
-                <li class="c-nav__item">
-                  <a class="js-weging c-nav__link" href="./weging.html"
-                    >New measurement</a
-                  >
-                </li>
-                <li class="c-nav__item">
-                  <a class="js-afrekening c-nav__link" href="./afrekening.html"
-                    >Invoices</a
-                  >
-                </li>
-                <li class="c-nav__item">
-                  <a
-                    class="js-instelling c-nav__link"
-                    href="./instellingen.html"
-                    >Settings</a
-                  >
-                </li>
               </ul>
             </nav>
           </div>
           <div class="c-header__mobile-nav-trigger">
             <button class="o-button-reset c-nav-trigger js-toggle-nav">
-              <img
-                class="c-nav-trigger__svg"
-                src="./img/ic_menu_black_24px.svg"
-                alt="Menu"
-              />
+              <img class="c-nav-trigger__svg" src="./img/ic_menu_black_24px.svg" alt="Menu" />
             </button>
           </div>
         </div>
       </div>
     </header>
+
+    <!--Main part -->
+    <main class="o-row o-row-main">
+      <div class="o-girdcontainer">
+        <div class="Card1">
+          <div class="c-card ">
+            <img class="js-foto1" src="Assets/img_avatar.png" alt="Avatar" />
+            <div class="c-card-text">
+              <h4 class="c-card-title"><b class="js-naam1">Cocktail 1</b></h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="Card2 u-grid-itemcenter">
+          <div class="c-card">
+            <img src="Assets/img_avatar.png" alt="Avatar" />
+            <div class="c-card-text">
+              <h4 class="c-card-title"><b>Cocktail 2</b></h4>
+            </div>
+          </div>
+        </div>
+
+        <div class="Card3 u-grid-itemcenter">
+          <div class="c-card">
+            <img src="Assets/img_avatar.png" alt="Avatar" style="width: 100%" />
+            <div class="c-card-text">
+              <h4 class="c-card-title"><b>Cocktail 3</b></h4>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </main>
   </body>
 </html>
