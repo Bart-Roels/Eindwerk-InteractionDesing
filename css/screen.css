@@ -269,7 +269,13 @@ input::placeholder {
 
 .o-row {
   position: relative;
-  padding: var(--global-whitespace) var(--global-whitespace) 0;
+  padding: var(--global-whitespace) var(--global-whitespace);
+
+      /* top padding is 25px
+    right padding is 50px
+    bottom padding is 75px
+    left padding is 100px */
+
 }
 
 .o-row-main{
@@ -559,7 +565,8 @@ input::placeholder {
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
     'Card1 Card2 Card3'
-    'Card4 Card5 Card6';
+    'Card4 Card5 Card6'
+    'Card7 Card8 Card9';
 
 }
 
@@ -575,7 +582,11 @@ input::placeholder {
       'Card3'
       'Card4'
       'Card5'
-      'Card6';
+      'Card6'
+      'Card7'
+      'Card8'
+      'Card9';
+
   }
 }
 
@@ -612,8 +623,31 @@ input::placeholder {
     custom nicer scrollbar for website
 */
 
+.fill {
+  fill: white;
+  animation: mymove 3s;
+}
 
-/* custom scrollbar */
+@keyframes mymove {
+  /* Fill slowly the cocktail whit orange collor */
+  /* 100% {
+    transform: translateY(0);
+    fill: #0055cc;
+  } */
+  /* to {
+    transform: translateY(0);
+    fill: #0055cc;
+  }
+
+  from {
+    transform: translateY(3%);
+    fill: #11cc00;
+  } */
+}
+
+
+
+
 ::-webkit-scrollbar {
   width: 20px;
 }
