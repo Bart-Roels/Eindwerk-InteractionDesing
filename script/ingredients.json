@@ -1,0 +1,470 @@
+{
+    "ingredients": [
+        {
+            "strIngredient": "Light rum",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Applejack",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Gin",
+            "Alcoholic": "1"
+
+        },
+        {
+            "strIngredient": "Dark rum",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Sweet Vermouth",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Sweet Vermouth",
+            "Alcoholic": "1"
+
+        },
+        {
+            "strIngredient": "Strawberry schnapps",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Scotch",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Apricot brandy",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Triple sec",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Southern Comfort",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Orange bitters",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Brandy",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Lemon vodka",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Blended whiskey",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Dry Vermouth",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Amaretto",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Tea",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Champagne",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Coffee liqueur",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Bourbon",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Tequila",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Vodka",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "A\u00f1ejo rum",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Bitters",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Sugar",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Kahlua",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "demerara Sugar",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Dubonnet Rouge",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Watermelon",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Lime juice",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Irish whiskey",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Apple brandy",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Beer",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "151 proof rum",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Yukon Jack",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Maraschino cherry",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Rye Whiskey",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Angostura Bitters",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Absolut Kurant",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Grand Marnier",
+            "Alcoholic": "1"
+        },
+           {
+            "strIngredient": "Baileys irish cream",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Chambord raspberry liqueur",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Midori melon liqueur",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Rye Whiskey",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Rye Whiskey",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Rye Whiskey",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Maraschino Liqueur",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Carbonated water",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Cherry brandy",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Creme de Cacao",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Grenadine",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Port",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Coffee brandy",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Red wine",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Rum",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Grapefruit juice",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Ricard",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Sherry",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Cognac",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Sloe gin",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Apple juice",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Pineapple juice",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Lemon juice",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Sugar syrup",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Milk",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Strawberries",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Chocolate syrup",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Yoghurt",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Mango",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Ginger",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Lime",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Cantaloupe",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Berries",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Grapes",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Kiwi",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Tomato juice",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Cocoa powder",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Chocolate",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Heavy cream",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Galliano",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Peach Vodka",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Ouzo",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Coffee",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Spiced rum",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Water",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Espresso",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Angelica root",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Orange",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Cranberries",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Johnnie Walker",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Apple cider",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Everclear",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Cranberry juice",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Egg yolk",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Egg",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Grape juice",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Peach nectar",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Lemon",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Firewater",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Lemonade",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Lager",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Whiskey",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Absolut Citron",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Pisco",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Irish cream",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Ale",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Chocolate liqueur",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Midori melon liqueur",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Sambuca",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Cider",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Sprite",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "7-Up",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Blackberry brandy",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Peppermint schnapps",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Creme de Cassis",
+            "Alcoholic": "1"
+        }
+    ]
+}
