@@ -1,0 +1,165 @@
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+.c-modal-btn {
+  background-color: #006aff;
+  padding: 8px;
+  color: #fff;
+  border-radius: 4px;
+  border-color: #006aff;
+}
+
+.c-modal-btn:hover {
+  background-color: #0055cc;
+  border-color: #0055cc;
+}
+
+.c-modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.c-modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: 10% auto;
+  width: 80%;
+  box-shadow: 0 5px 8px 0 rgb(0, 0, 0, 0.2), 0 7px 20px 0 rgb(0, 0, 0, 0.17);
+
+  /* round corners */
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* Opeing animation */
+.c-modal-open {
+  /* Animation */
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.8s;
+  animation-name: animatetop;
+  animation-duration: 0.8s;
+}
+
+/* Animation */
+@-webkit-keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animatetop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* Closing animation */
+.c-modal-close {
+  /* Animation */
+  -webkit-animation-name: annimatebottom;
+  -webkit-animation-duration: 0.8s;
+  animation-name: annimatebottom;
+  animation-duration: 0.8s;
+}
+
+@-webkit-keyframes annimatebottom {
+  from {
+    top: 0;
+    opacity: 1;
+  }
+  to {
+    top: -300px;
+    opacity: 0;
+  }
+}
+
+@keyframes annimatebottom {
+  from {
+    top: 0;
+    opacity: 1;
+  }
+  to {
+    top: -300px;
+    opacity: 0;
+  }
+}
+
+/* Check if model has the class c-modal-close */
+.c-modal-content .c-modal-close {
+  display: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.c-model-overflow {
+  /* hide scrollbars */
+  overflow: hidden;
+  position: fixed;
+}
+
+/* Header from modal */
+.c-model-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  background-color: #006aff;
+  padding: 8px;
+
+  /* round top corners */
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+/* Body from modal */
+.c-model-body {
+  padding: 8px;
+}
+
+/* Title from modal */
+.c-model-titel {
+  flex-basis: 96%;
+}
+
+.c-model-flexitem_cross {
+  flex-basis: 4%;
+  fill: white;
+}
+
+@media (max-width: 768px) {
+  .c-model-titel {
+    flex-basis: 85%;
+  }
+
+  .c-model-flexitem_cross {
+    flex-basis: 15%;
+    margin-left: auto;
+    align-content: flex-end;
+  }
+}
+
+.c-model-flexitem_cross:hover,
+.c-model-flexitem_cross:focus {
+  fill: hotpink;
+  text-decoration: none;
+  cursor: pointer;
+}

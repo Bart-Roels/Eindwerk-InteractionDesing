@@ -3,15 +3,15 @@
 \*------------------------------------*/
 
 @font-face {
-  font-family: 'Inter Web';
+  font-family: "Inter Web";
   font-weight: 400;
-  src: url('../fonts/Inter-Regular.woff2') format('woff2');
+  src: url("../fonts/Inter-Regular.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: 'Inter Web';
+  font-family: "Inter Web";
   font-weight: 600;
-  src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
+  src: url("../fonts/Inter-SemiBold.woff2") format("woff2");
 }
 
 /*------------------------------------*\
@@ -77,7 +77,8 @@
   --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
   --global-input-focus-borderColor: var(--global-color-alpha);
   --global-input-focus-boxShadowColor: var(--global-color-alpha-x-transparent);
-  --global-input-focus-boxShadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+  --global-input-focus-boxShadow: 0 0 0 3px
+    var(--global-input-focus-boxShadowColor);
 }
 
 /*------------------------------------*\
@@ -95,7 +96,7 @@ html {
   color: var(--global-html-color);
   font-size: 16px;
   line-height: 1.5;
-  font-family: 'Inter Web', Helvetica, arial, sans-serif;
+  font-family: "Inter Web", Helvetica, arial, sans-serif;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -271,14 +272,13 @@ input::placeholder {
   position: relative;
   padding: var(--global-whitespace) var(--global-whitespace);
 
-      /* top padding is 25px
+  /* top padding is 25px
     right padding is 50px
     bottom padding is 75px
     left padding is 100px */
-
 }
 
-.o-row-main{
+.o-row-main {
   padding: 0 0 var(--global-whitespace-xl) 0;
 }
 
@@ -302,7 +302,6 @@ input::placeholder {
   top: 0;
   /* Set opacity to 0.5 */
 }
-
 
 /* size modifiers */
 
@@ -564,10 +563,9 @@ input::placeholder {
   column-gap: 1rem;
   grid-template-columns: repeat(3, 1fr);
   grid-template-areas:
-    'Card1 Card2 Card3'
-    'Card4 Card5 Card6'
-    'Card7 Card8 Card9';
-
+    "Card1 Card2 Card3"
+    "Card4 Card5 Card6"
+    "Card7 Card8 Card9";
 }
 
 /* Phone */
@@ -577,16 +575,15 @@ input::placeholder {
     /* Center item */
     grid-template-columns: repeat(1, 1fr);
     grid-template-areas:
-      'Card1'
-      'Card2'
-      'Card3'
-      'Card4'
-      'Card5'
-      'Card6'
-      'Card7'
-      'Card8'
-      'Card9';
-
+      "Card1"
+      "Card2"
+      "Card3"
+      "Card4"
+      "Card5"
+      "Card6"
+      "Card7"
+      "Card8"
+      "Card9";
   }
 }
 
@@ -645,9 +642,6 @@ input::placeholder {
   } */
 }
 
-
-
-
 ::-webkit-scrollbar {
   width: 20px;
 }
@@ -678,7 +672,6 @@ input::placeholder {
   transition: 0.3s;
   max-width: 352px;
   max-height: 448px;
-
 }
 
 .c-card:hover {
@@ -693,9 +686,7 @@ input::placeholder {
   /* Center text */
   text-align: center;
   /* Margin botten 24px */
-  margin: var(--global-whitespace-md)
-
-
+  margin: var(--global-whitespace-md);
 }
 
 /* 
@@ -830,9 +821,11 @@ input::placeholder {
   font-family: inherit;
   font-size: 16px;
   line-height: calc(var(--global-baseline) * 3);
-  padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
+  padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth))
+    var(--global-whitespace-md);
   outline: none;
-  transition: border var(--global-transition-timing-alpha), box-shadow var(--global-transition-timing-alpha);
+  transition: border var(--global-transition-timing-alpha),
+    box-shadow var(--global-transition-timing-alpha);
 }
 
 .c-input:hover {
@@ -902,11 +895,13 @@ more padding on the right to avoid overlap
   background-color: var(--button-backgroundColor);
   color: #fff;
   line-height: calc(var(--global-baseline) * 3);
-  padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
+  padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth))
+    var(--global-whitespace-md);
   width: 100%;
   outline: none;
   box-shadow: var(--button-boxShadow, 0);
-  transition: all var(--global-transitionTiming-alpha) var(--global-transitionEasing-out);
+  transition: all var(--global-transitionTiming-alpha)
+    var(--global-transitionEasing-out);
 }
 
 .c-button:hover {
@@ -960,9 +955,11 @@ more padding on the right to avoid overlap
   height: var(--global-whitespace-md);
   margin-right: var(--global-whitespace-sm);
   background: var(--global-input-backgroundColor);
-  border: var(--global-borderWidth) solid var(--custom-option-borderColor, var(--global-input-borderColor));
+  border: var(--global-borderWidth) solid
+    var(--custom-option-borderColor, var(--global-input-borderColor));
   box-shadow: var(--custom-option-boxShadow, 0);
-  transition: border var(--global-transitionTiming-alpha), box-shadow var(--global-transitionTiming-alpha);
+  transition: border var(--global-transitionTiming-alpha),
+    box-shadow var(--global-transitionTiming-alpha);
 }
 
 .c-custom-option__fake-input--checkbox {
@@ -978,7 +975,8 @@ more padding on the right to avoid overlap
   opacity: 0;
   /* Hide the symbol initially */
   transform: scale(0.5);
-  transition: transform var(--global-transitionTiming-alpha), opacity var(--global-transitionTiming-alpha);
+  transition: transform var(--global-transitionTiming-alpha),
+    opacity var(--global-transitionTiming-alpha);
 }
 
 .c-custom-option__fake-input--checkbox .c-custom-option__symbol {
@@ -1060,7 +1058,8 @@ more padding on the right to avoid overlap
   margin-right: var(--global-whitespace-md);
   background-color: var(--toggle-backgroundColor);
   border-radius: 32px;
-  border: var(--global-borderWidth) solid var(--toggle-borderColor, var(--global-input-borderColor));
+  border: var(--global-borderWidth) solid
+    var(--toggle-borderColor, var(--global-input-borderColor));
   transition: all var(--global-transitionTiming-alpha);
   box-shadow: var(--toggle-boxShadow, 0);
 }
@@ -1072,7 +1071,7 @@ more padding on the right to avoid overlap
 .c-custom-toggle__fake-input::after {
   position: relative;
   display: block;
-  content: '';
+  content: "";
   height: 22px;
   width: 22px;
   border-radius: 22px;
@@ -1093,10 +1092,14 @@ more padding on the right to avoid overlap
 .c-option--hidden:checked + .c-custom-toggle {
   --toggle-backgroundColor: var(--toggle-checked-backgroundColor);
   --toggle-borderColor: var(--toggle-checked-borderColor);
-  --toggle__switch-backgroundColor: var(--toggle__switch-checked-backgroundColor);
+  --toggle__switch-backgroundColor: var(
+    --toggle__switch-checked-backgroundColor
+  );
 }
 
-.c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input::after {
+.c-option--hidden:checked
+  + .c-custom-toggle
+  .c-custom-toggle__fake-input::after {
   transform: translate(24px, 0);
 }
 
@@ -1106,7 +1109,9 @@ more padding on the right to avoid overlap
   width: 28px;
 }
 
-.c-option--hidden:checked + .c-custom-toggle:active .c-custom-toggle__fake-input::after {
+.c-option--hidden:checked
+  + .c-custom-toggle:active
+  .c-custom-toggle__fake-input::after {
   margin-left: -6px;
 }
 
@@ -1144,7 +1149,6 @@ more padding on the right to avoid overlap
 .u-grid-itemcenter {
   justify-self: center;
 }
-
 
 /*
     Utilities: color
@@ -1539,20 +1543,20 @@ No media query since this is the default in mobile first design
   }
 
   a[href]:after {
-    content: ' (' attr(href) ')';
+    content: " (" attr(href) ")";
   }
 
   abbr[title]:after {
-    content: ' (' attr(title) ')';
+    content: " (" attr(title) ")";
   }
 
   /*
     * Don't show links that are fragment identifiers,
     * or use the `javascript:` pseudo protocol
     */
-  a[href^='#']:after,
-  a[href^='javascript:']:after {
-    content: '';
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
   }
 
   pre {
