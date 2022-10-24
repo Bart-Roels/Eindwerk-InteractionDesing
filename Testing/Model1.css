@@ -1,3 +1,23 @@
+/* .c-model-container {
+  display: grid;
+  grid-template-columns: 300px 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Photo Cocktail-info Cocktail-info"
+    "Photo Cocktail-info Cocktail-info"
+    ". . .";
+}
+
+.Photo {
+  grid-area: Photo;
+}
+
+.Cocktail-info {
+  grid-area: Cocktail-info;
+} */
+
 html {
   font-family: "Roboto", sans-serif;
 }

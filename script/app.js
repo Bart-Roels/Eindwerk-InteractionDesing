@@ -17,19 +17,84 @@ checkAlcohol = (drink, ingredientsCocktail) => {
   return alcoholList;
 };
 
+listenToClose = (modal) => {
+  // Listen to close button
+  const closeButton = document.querySelector('.js-modal-close');
+  closeButton.addEventListener('click', () => {
+    modal.classList.remove('is-visible');
+    // Remove overflow hidden to body
+    document.body.classList.remove('u-model-overflow');
+  });
+
+  // Listen to close button or click outside modal
+  const modalContainer = document.querySelector('.js-modal');
+  modalContainer.addEventListener('click', (e) => {
+    if (e.target.classList.contains('js-modal')) {
+      modal.classList.remove('is-visible');
+      // Remove overflow hidden to body
+      document.body.classList.remove('u-model-overflow');
+    }
+  });
+
+  // Listen to esc key
+  document.addEventListener('keyup', (e) => {
+    if (e.key === 'Escape') {
+      modal.classList.remove('is-visible');
+      // Remove overflow hidden to body
+      document.body.classList.remove('u-model-overflow');
+    }
+  });
+}
+
+showDataInModal = async (id) => {
+  const modal = document.querySelector('.js-modal');
+  const modalContent = document.querySelector('.js-modal-content');
+  const modalTitle = document.querySelector('.js-modal-title');
+  const modalImage = document.querySelector('.js-modal-image');
+  const modalIngredients = document.querySelector('.js-modal-ingredients');
+  const modalInstructions = document.querySelector('.js-modal-instructions');
+  const modalGlass = document.querySelector('.js-modal-glass');
+  const modalAlcoholic = document.querySelector('.js-modal-alcoholic');
+  const modalAlcoholicList = document.querySelector('.js-modal-alcoholic-list');
+
+  // Get data from API
+  const data = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
+  const drink = await data.json();
+
+  // Set title
+  modalTitle.innerHTML = drink.drinks[0].strDrink;
+
+  // Set image
+  modalImage.src = drink.drinks[0].strDrinkThumb;
+  modalImage.alt = drink.drinks[0].strDrink;
+
+
+
+}
+
 listenToCard = () => {
   const buttons = document.querySelectorAll('.js-button');
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', (e) => {
       // Get data-id from card
       const id = e.currentTarget.getAttribute('data-id');
-      console.log(e.target);
-      console.log(id);
+      console.log(`OPEN ==> ${id}`);
 
-      
+      // Open modal
+      const modal = document.querySelector('.js-modal');
+      console.log(modal);
+      modal.classList.add('is-visible');
+      // Add overflow hidden to body
+      document.body.classList.add('u-model-overflow');
+
+      // Listen to close
+      listenToClose(modal);
+
+      // Show data in modal
+      showDataInModal(id);
+
     });
   }
-
 }
 
 showResult = async (data) => {
