@@ -1293,6 +1293,9 @@ more padding on the right to avoid overlap
   font-size: 1rem;
 }
 
+.c-modelcontent__list-item {
+
+
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
