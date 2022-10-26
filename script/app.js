@@ -17,6 +17,33 @@ checkAlcohol = (drink, ingredientsCocktail) => {
   return alcoholList;
 };
 
+visualizeAlcohol = (drinks) => {
+  // Visualize alcohol
+
+  let drink = drinks.drinks[0];
+
+  // Get all ingredients
+  // Make list of all ingredients in drink
+  let ingredientsCocktail = [];
+  for (var a = 1; a < 16; a++) {
+    if (drink[`strIngredient${a}`] != null) {
+      ingredientsCocktail.push(drink[`strIngredient${a}`]);
+    }
+  }
+
+  // Get list of alcohol ingredients
+  let array = checkAlcohol(drink, ingredientsCocktail);
+
+  // Compare in %
+  let percentage = (array.length / ingredientsCocktail.length) * 100;
+
+  console.log(`Name => ${drink.strDrink}\nIngredienten => ${ingredientsCocktail}\nAlcohol => ${array}\nPercentage => ${percentage}`);
+
+  return percentage;
+
+
+}
+
 listenToClose = (modal) => {
   // Listen to close button
   const closeButton = document.querySelector('.js-modal-close');
@@ -47,16 +74,13 @@ listenToClose = (modal) => {
 }
 
 showDataInModal = async (id) => {
-  const modal = document.querySelector('.js-modal');
-  const modalContent = document.querySelector('.js-modal-content');
+
   const modalTitle = document.querySelector('.js-modal-title');
   const modalImage = document.querySelector('.js-modal-image');
   const modalIngredients = document.querySelector('.js-modal-ingredients');
-  const modalInstructions = document.querySelector('.js-modal-instructions');
+  const ingredientsList = document.querySelector('.js-modal-ingredients-list');
   const modalInfo = document.querySelector('.js-modal-info');
-  const modalGlass = document.querySelector('.js-modal-glass');
-  const modalAlcoholic = document.querySelector('.js-modal-alcoholic');
-  const modalAlcoholicList = document.querySelector('.js-modal-alcoholic-list');
+  const cocktailStrength = document.querySelector('.js-cocktail-strength');
   const radio = document.querySelectorAll('input[name="menue"]');
 
 
@@ -78,6 +102,10 @@ showDataInModal = async (id) => {
   }
   radio[0].checked = true;
 
+
+  // Visualize alcohol
+  let percentage = visualizeAlcohol(drink);
+
   // Set ingredients
   modalIngredients.classList.remove('u-hidden');
   let ingredients = '';
@@ -88,11 +116,39 @@ showDataInModal = async (id) => {
       ingredientsCocktail.push(drink.drinks[0][`strIngredient${i}`]);
     }
   }
-  modalIngredients.innerHTML = ingredients;
+  ingredientsList.innerHTML = ingredients;
+
+  // Set percentage in percentage bara
+  const percentageBar = document.querySelector('.js-modal-percentage-bar');
+  percentageBar.style.width = `${percentage}%`;
+  // Set percentage in percentage text
+  // Round percentage
+  percentageBar.innerHTML = `${Math.round(percentage)}%`;
+
+  // Swich case based on percentage and set cocktail strength
+  switch (true) {
+    case (percentage <= 0):
+      cocktailStrength.innerHTML = 'Non-alcoholic';
+      break;
+    case (percentage > 0 && percentage <= 25):
+      cocktailStrength.innerHTML = 'Low';
+      break;
+    case (percentage > 25 && percentage <= 50):
+      cocktailStrength.innerHTML = 'Medium';
+      break;
+    case (percentage > 50 && percentage <= 75):
+      cocktailStrength.innerHTML = 'High';
+      break;
+    case (percentage > 75):
+      cocktailStrength.innerHTML = 'Very strong';
+      break;
+    default:
+      cocktailStrength.innerHTML = 'Unknown';
+  }
+
 
 
   // Event listener for radio button
-
   radio.forEach((item) => {
     item.addEventListener('change', (e) => {
       // Hide both 
@@ -110,9 +166,7 @@ showDataInModal = async (id) => {
           }
         }
         modalIngredients.classList.remove('u-hidden');
-        modalIngredients.innerHTML = ingredients;
-
-
+        ingredientsList.innerHTML = ingredients;
       }
       if (value == 'info') {
         // Remove hidden class
@@ -122,6 +176,8 @@ showDataInModal = async (id) => {
       }
     });
   })
+
+  //
 
 
 }
@@ -186,24 +242,6 @@ showResult = async (data) => {
     }
 
 
-    // Visualize alcohol
-
-    // Get all ingredients
-    // Make list of all ingredients in drink
-    let ingredientsCocktail = [];
-    for (var a = 1; a < 16; a++) {
-      if (drink[`strIngredient${a}`] != null) {
-        ingredientsCocktail.push(drink[`strIngredient${a}`]);
-      }
-    }
-
-    // Get list of alcohol ingredients
-    let array = checkAlcohol(drink, ingredientsCocktail);
-
-    // Compare in %
-    let percentage = (array.length / ingredientsCocktail.length) * 100;
-
-    console.log(`Name => ${drink.strDrink}\nIngredienten => ${ingredientsCocktail}\nAlcohol => ${array}\nPercentage => ${percentage}`);
   }
 };
 

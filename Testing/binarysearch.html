@@ -1,0 +1,61 @@
+<html>
+
+<body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <script>
+        var searchArray = [99, 198, 297, 396, 495, 594, 693, 792, 891, 989, 1088, 1187, 1286, 1385, 1484, 1583, 1682, 1781, 1879, 1978, 2077, 2176, 2275, 2374, 2473, 2572, 2671, 2770, 2868, 2967, 3066, 3165, 3264, 3363, 3462, 3561, 3660, 3758, 3857, 3956, 4055, 4154, 4253, 4352, 4451, 4550, 4648, 4747, 4846, 4945, 5044, 5143, 5242, 5341, 5440, 5539, 5637, 5736, 5835, 5934, 6033, 6132, 6231, 6330, 6429, 6527, 6626, 6725, 6824, 6923, 7022, 7121, 7220, 7319, 7417];
+
+        "use strict";
+        function binarySearch(item, searchArray) {
+            var startIndex = 0, endIndex = searchArray.length - 1, midPoint, midVal, searchResult;
+            if (item < searchArray[startIndex]) {
+                return -1;
+            }
+            if (item >= searchArray[endIndex]) {
+                return searchArray.length - 1;
+            }
+
+            while (startIndex < endIndex) {
+                console.log("startIndex ", startIndex, "endIndex", endIndex)
+                midPoint = Math.floor((endIndex + startIndex) / 2);
+                searchResult = searchAroundPoint(midPoint, item);
+                if (searchResult == -1) {
+                    if (item < searchArray[midPoint]) {
+                        endIndex = midPoint - 1;
+                    } else {
+                        startIndex = midPoint + 1;
+                    }
+                } else {
+                    return searchResult;
+                }
+            }
+            return -1;
+
+            function searchAroundPoint(midPoint, item) {
+                if (item == searchArray[midPoint] || (midPoint < searchArray.length - 1 && item > searchArray[midPoint] && item < searchArray[midPoint + 1]))
+                    return midPoint;
+                else if (midPoint - 1 >= 0 && item >= searchArray[midPoint - 1] && item < searchArray[midPoint])
+                    return midPoint - 1;
+
+                return -1
+            }
+        }
+
+
+        (function () {
+            var s = $("<ol/>");
+            for (var i = 0; i < searchArray.length; i++) {
+                s.append($("<li/>").text(searchArray[i]))
+            }
+
+            s.appendTo("body");
+        })()
+
+    </script>
+
+
+</body>
+
+
+</html>

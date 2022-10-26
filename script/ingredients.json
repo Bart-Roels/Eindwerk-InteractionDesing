@@ -5,13 +5,36 @@
             "Alcoholic": "1"
         },
         {
+            "strIngredient": "Blue Curacao",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Orange Curacao",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Strawberry liqueur",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Blended Scotch",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Islay single malt Scotch",
+            "Alcoholic": "1"
+        },
+        {
             "strIngredient": "Applejack",
             "Alcoholic": "1"
         },
         {
             "strIngredient": "Gin",
             "Alcoholic": "1"
-
+        },
+        {
+            "strIngredient": "Frangelico",
+            "Alcoholic": "1"
         },
         {
             "strIngredient": "Dark rum",
@@ -24,7 +47,6 @@
         {
             "strIngredient": "Sweet Vermouth",
             "Alcoholic": "1"
-
         },
         {
             "strIngredient": "Strawberry schnapps",
@@ -52,10 +74,6 @@
         },
         {
             "strIngredient": "Brandy",
-            "Alcoholic": "1"
-        },
-        {
-            "strIngredient": "Lemon vodka",
             "Alcoholic": "1"
         },
         {
@@ -159,6 +177,54 @@
             "Alcoholic": "1"
         },
         {
+            "strIngredient": "Peachtree schnapps",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "cointreau",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Mint",
+            "Alcoholic": "0"
+        },
+        {
+            "strIngredient": "Creme de Cacao",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Dark Rum",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Absolut Vodka",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Cointreau",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Jack Daniels",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Goldschlager",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Campari",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Creme De Banane",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Sloe gin",
+            "Alcoholic": "1"
+        },
+        {
             "strIngredient": "Absolut Kurant",
             "Alcoholic": "1"
         },
@@ -166,16 +232,40 @@
             "strIngredient": "Grand Marnier",
             "Alcoholic": "1"
         },
-           {
+        {
+            "strIngredient": "Corona",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "maui",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Malibu rum",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "White rum",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Bacardi Limon",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Rumple Minze",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Jägermeister",
+            "Alcoholic": "1"
+        },
+        {
             "strIngredient": "Baileys irish cream",
             "Alcoholic": "1"
         },
         {
             "strIngredient": "Chambord raspberry liqueur",
-            "Alcoholic": "1"
-        },
-        {
-            "strIngredient": "Midori melon liqueur",
             "Alcoholic": "1"
         },
         {
@@ -243,7 +333,35 @@
             "Alcoholic": "1"
         },
         {
-            "strIngredient": "Sloe gin",
+            "strIngredient": "Peach schnapps",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Lemon vodka",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "st. germain",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Ginger Beer",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Applejack",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "angostura bitters",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Creme de Noyaux",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "White Creme de Menthe",
             "Alcoholic": "1"
         },
         {
@@ -436,6 +554,10 @@
         },
         {
             "strIngredient": "Midori melon liqueur",
+            "Alcoholic": "1"
+        },
+        {
+            "strIngredient": "Melon Liqueur",
             "Alcoholic": "1"
         },
         {
