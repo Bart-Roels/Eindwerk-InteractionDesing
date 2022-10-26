@@ -3,15 +3,15 @@
 \*------------------------------------*/
 
 @font-face {
-  font-family: 'Inter Web';
+  font-family: "Inter Web";
   font-weight: 400;
-  src: url('../fonts/Inter-Regular.woff2') format('woff2');
+  src: url("../fonts/Inter-Regular.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: 'Inter Web';
+  font-family: "Inter Web";
   font-weight: 600;
-  src: url('../fonts/Inter-SemiBold.woff2') format('woff2');
+  src: url("../fonts/Inter-SemiBold.woff2") format("woff2");
 }
 
 /*------------------------------------*\
@@ -77,7 +77,8 @@
   --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
   --global-input-focus-borderColor: var(--global-color-alpha);
   --global-input-focus-boxShadowColor: var(--global-color-alpha-x-transparent);
-  --global-input-focus-boxShadow: 0 0 0 3px var(--global-input-focus-boxShadowColor);
+  --global-input-focus-boxShadow: 0 0 0 3px
+    var(--global-input-focus-boxShadowColor);
 }
 
 /*------------------------------------*\
@@ -95,7 +96,7 @@ html {
   color: var(--global-html-color);
   font-size: 16px;
   line-height: 1.5;
-  font-family: 'Inter Web', Helvetica, arial, sans-serif;
+  font-family: "Inter Web", Helvetica, arial, sans-serif;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -640,11 +641,31 @@ input::placeholder {
 .c-card-text {
   /* Margin top bottem 24px */
   margin: var(--global-whitespace-sm) 0;
+  
+  /* Set two things next to each other */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  /* Center on the y axis */
+  align-items: center;
+
+
 }
 
 .c-card-title {
   /* Center text to left */
   text-align: left;
+  /* Font size 16px */
+  font-size: 16px;
+  /* Line height 24px */
+  line-height: 24px;
+  /* Font weight 400 */
+  font-weight: 400;
+}
+
+.c-card-icon {
+  height: 40px;
+  width: 40  px;
 }
 
 /* 
@@ -654,8 +675,8 @@ input::placeholder {
 */
 
 .c-logo {
-  font-family: essonnes-headline, serif;
-  font-weight: 700;
+  font-family: gin, serif;
+  font-weight: 400;
   font-style: normal;
   height: 24px;
   display: flex;
@@ -753,337 +774,6 @@ input::placeholder {
 }
 
 /*
-    Component: Forms
-    ---
-    Everything form related here
-*/
-
-.c-form-field--option {
-  display: flex;
-  align-items: center;
-}
-
-/*
-    Component: Input
-    ---
-    Class to put on all input="text" like form inputs
-*/
-
-.c-input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  width: 100%;
-  border: 1px solid var(--global-input-borderColor);
-  /* border: 1px solid var(--global-color-neutral-xxx-light); */
-  border-radius: var(--global-borderRadius);
-  background-color: var(--global-input-backgroundColor);
-  color: var(--global-input-color);
-  font-family: inherit;
-  font-size: 16px;
-  line-height: calc(var(--global-baseline) * 3);
-  padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
-  outline: none;
-  transition: border var(--global-transition-timing-alpha), box-shadow var(--global-transition-timing-alpha);
-}
-
-.c-input:hover {
-  border-color: var(--global-input-hover-borderColor);
-}
-
-.c-input:focus,
-.c-input:active {
-  border-color: var(--global-input-focus-borderColor);
-  box-shadow: var(--global-input-focus-boxShadow);
-}
-
-/*
-Input password with toggle checkbox on top of it needs
-more padding on the right to avoid overlap
-*/
-
-.c-input--password-with-toggle {
-  padding-right: 52px;
-}
-
-/* option input for checkboxes and radio buttons */
-
-.c-option {
-  margin-right: var(--global-whitespace-sm);
-}
-
-/*
-    Component: Label
-    ---
-    Class to put on all form labels
-*/
-
-.c-label {
-  --label-color: var(--global-color-neutral-xx-dark);
-  margin-bottom: 0;
-  padding-bottom: var(--global-whitespace-sm);
-  font-size: 14px;
-  line-height: 16px;
-  color: var(--label-color);
-}
-
-.c-label--option {
-  padding-bottom: 0;
-}
-
-/*
-    Component: Button
-    ---
-    Class to put on form buttons or
-*/
-
-.c-button {
-  --button-borderColor: var(--global-color-alpha-dark);
-  --button-hover-borderColor: var(--global-color-alpha-dark);
-  --button-active-borderColor: var(--global-color-alpha-dark);
-  --button-focus-borderColor: var(--global-color-alpha-dark);
-  --button-backgroundColor: var(--global-color-alpha);
-  --button-hover-backgroundColor: var(--global-color-alpha-light);
-  --button-active-backgroundColor: var(--global-color-alpha-dark);
-  --button-focus-backgroundColor: var(--global-color-alpha);
-  --button-focus-boxShadow: var(--global-input-focus-boxShadow);
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: var(--global-borderRadius);
-  border: 1px solid var(--button-borderColor);
-  background-color: var(--button-backgroundColor);
-  color: #fff;
-  line-height: calc(var(--global-baseline) * 3);
-  padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
-  width: 100%;
-  outline: none;
-  box-shadow: var(--button-boxShadow, 0);
-  transition: all var(--global-transitionTiming-alpha) var(--global-transitionEasing-out);
-}
-
-.c-button:hover {
-  border-color: var(--button-hover-borderColor);
-  background-color: var(--button-hover-backgroundColor);
-}
-
-.c-button:focus {
-  background-color: var(--button-focus-backgroundColor);
-  border-color: var(--button-focus-borderColor);
-  box-shadow: var(--button-focus-boxShadow);
-}
-
-.c-button:active {
-  background-color: var(--button-active-backgroundColor);
-  border-color: var(--button-active-borderColor);
-  box-shadow: var(--button-active-boxShadow, 0);
-}
-
-/*
-    Component: Option list
-*/
-
-.c-option-list {
-  margin-bottom: var(--global-whitespace);
-}
-
-.c-option-list__item {
-  margin-bottom: calc(var(--global-whitespace) / 2);
-}
-
-/*
-    Custom option
-    ---
-    Custom checkboxes & radio buttons
-*/
-
-/* Hide the actual input with the class .o-hide-accessible */
-
-.c-custom-option {
-  --custom-option__symbol-Fill: var(--global-color-alpha);
-  display: flex;
-  align-items: center;
-}
-
-.c-custom-option__fake-input {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--global-whitespace-md);
-  height: var(--global-whitespace-md);
-  margin-right: var(--global-whitespace-sm);
-  background: var(--global-input-backgroundColor);
-  border: var(--global-borderWidth) solid var(--custom-option-borderColor, var(--global-input-borderColor));
-  box-shadow: var(--custom-option-boxShadow, 0);
-  transition: border var(--global-transitionTiming-alpha), box-shadow var(--global-transitionTiming-alpha);
-}
-
-.c-custom-option__fake-input--checkbox {
-  border-radius: var(--global-borderRadius);
-}
-
-.c-custom-option__fake-input--radio {
-  border-radius: 100%;
-}
-
-.c-custom-option__symbol {
-  display: block;
-  opacity: 0;
-  /* Hide the symbol initially */
-  transform: scale(0.5);
-  transition: transform var(--global-transitionTiming-alpha), opacity var(--global-transitionTiming-alpha);
-}
-
-.c-custom-option__fake-input--checkbox .c-custom-option__symbol {
-  width: 10px;
-  height: 10px;
-  fill: var(--custom-option__symbol-Fill);
-}
-
-.c-custom-option__fake-input--radio .c-custom-option__symbol {
-  background-color: var(--custom-option__symbol-Fill);
-  border-radius: 100%;
-  width: 6px;
-  height: 6px;
-}
-
-/* hover state */
-
-.c-custom-option:hover {
-  --custom-option-borderColor: var(--global-input-hover-borderColor);
-}
-
-/* focused and active state */
-
-.c-option--hidden:focus + .c-custom-option,
-.c-option--hidden:active + .c-custom-option {
-  --custom-option-borderColor: var(--global-input-focus-borderColor);
-  --custom-option-boxShadow: var(--global-input-focus-boxShadow);
-}
-
-/* checked state */
-
-.c-option--hidden:checked + .c-custom-option .c-custom-option__symbol {
-  opacity: 1;
-  /* Show the symbol when the invisible checkbox/radio button is checked */
-  transform: scale(1);
-}
-
-/*
-    Component: Custom Toggle
-    ---
-    Visually change a checkbox into a toggle
-*/
-
-.c-custom-toggle-list {
-  --toggle-list-borderColor: var(--global-color-neutral-xxx-light);
-  margin-bottom: var(--global-whitespace);
-}
-
-.c-custom-toggle-list__item {
-  margin-bottom: calc(var(--global-whitespace) / 2);
-}
-
-.c-custom-toggle-list__item + .c-custom-toggle-list__item {
-  padding-top: calc(var(--global-whitespace) / 2);
-  border-top: 1px solid var(--toggle-list-borderColor);
-}
-
-.c-custom-toggle {
-  --toggle-backgroundColor: var(--global-color-neutral-xxxx-light);
-  --toggle-checked-borderColor: var(--global-color-alpha-dark);
-  --toggle-checked-backgroundColor: var(--global-color-alpha);
-  --toggle-focus-boxShadow: var(--global-input-focus-boxShadow);
-  --toggle__switch-backgroundColor: White;
-  --toggle__switch-checked-backgroundColor: White;
-  --toggle__switch-transition: all var(--global-transitionTiming-alpha);
-  display: flex;
-  align-items: center;
-}
-
-.c-custom-toggle--inverted {
-  flex-direction: row-reverse;
-  justify-content: space-between;
-}
-
-.c-custom-toggle__fake-input {
-  display: block;
-  height: 24px;
-  width: 48px;
-  margin-right: var(--global-whitespace-md);
-  background-color: var(--toggle-backgroundColor);
-  border-radius: 32px;
-  border: var(--global-borderWidth) solid var(--toggle-borderColor, var(--global-input-borderColor));
-  transition: all var(--global-transitionTiming-alpha);
-  box-shadow: var(--toggle-boxShadow, 0);
-}
-
-.c-custom-toggle--inverted .c-custom-toggle__fake-input {
-  margin-right: 0;
-}
-
-.c-custom-toggle__fake-input::after {
-  position: relative;
-  display: block;
-  content: '';
-  height: 22px;
-  width: 22px;
-  border-radius: 22px;
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.2);
-  background-color: var(--toggle__switch-backgroundColor);
-  transition: var(--toggle__switch-transition);
-}
-
-/* focused and active state */
-
-.c-option--hidden:focus-visible + .c-custom-toggle {
-  --toggle-borderColor: var(--global-input-focus-borderColor);
-  --toggle-boxShadow: var(--toggle-focus-boxShadow);
-}
-
-/* checked state */
-
-.c-option--hidden:checked + .c-custom-toggle {
-  --toggle-backgroundColor: var(--toggle-checked-backgroundColor);
-  --toggle-borderColor: var(--toggle-checked-borderColor);
-  --toggle__switch-backgroundColor: var(--toggle__switch-checked-backgroundColor);
-}
-
-.c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input::after {
-  transform: translate(24px, 0);
-}
-
-/* special active state */
-
-.c-custom-toggle:active .c-custom-toggle__fake-input::after {
-  width: 28px;
-}
-
-.c-option--hidden:checked + .c-custom-toggle:active .c-custom-toggle__fake-input::after {
-  margin-left: -6px;
-}
-
-/*
-    Component: Custom Select
-    ---
-    Custom select dropdown
-*/
-
-.c-custom-select {
-  display: block;
-  position: relative;
-}
-
-.c-custom-select__symbol {
-  width: var(--global-whitespace);
-  height: var(--global-whitespace);
-  position: absolute;
-  top: calc(var(--global-whitespace) / 2);
-  right: calc(var(--global-whitespace) / 2);
-  pointer-events: none;
-  fill: var(--global-color-neutral-x-light);
-}
-
-/*
     Component: Modal
     ---
     A modal overlay
@@ -1098,7 +788,7 @@ more padding on the right to avoid overlap
   height: 100%;
   width: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.571);
   opacity: 0;
   visibility: hidden;
   -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
@@ -1163,9 +853,12 @@ more padding on the right to avoid overlap
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #fff;
-  background-color: #006aff;
-  padding: var(--global-whitespace);
+  flex-direction: row-reverse;
+  color: black;
+  background-color: #fefefe;
+  /* Padding top left right */
+  padding: var(--global-whitespace) var(--global-whitespace) 0
+    var(--global-whitespace);
 
   /* round top corners */
   border-top-left-radius: 4px;
@@ -1179,13 +872,20 @@ more padding on the right to avoid overlap
 
 /* Title from modal */
 .c-model-flexitem_cross {
-  fill: white;
+  /* Background color light grey */
+  background-color: #f3f3ff;
+  /* Round backjground */
+  border-radius: 100%;
+  fill: black;
   cursor: pointer;
+  /* Center the icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .c-model-flexitem_cross:hover,
 .c-model-flexitem_cross:focus {
-  fill: rgb(211, 204, 208);
   scale: 1.2;
   text-decoration: none;
   cursor: pointer;
@@ -1219,9 +919,11 @@ more padding on the right to avoid overlap
 */
 
 .c-modelcontent__name {
+  /* Center the text */
+  text-align: center;
   font-size: 2.5rem;
-  font-family: essonnes-headline, serif;
-  font-weight: 700;
+  font-family: gin, serif;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -1236,9 +938,65 @@ more padding on the right to avoid overlap
   font-size: 1rem;
 }
 
+.c-modelcontent__midtitle {
+  font-size: 1rem;
+  margin-bottom: var(--global-whitespace-sm);
+  flex-basis: 50%;
+  /* Center the text */
+  text-align: center;
+  border-bottom: 1px solid black;
+  opacity: 0.5;
+}
+
+.c-modal-menue {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: var(--global-whitespace-sm);
+  /* Border bottom */
+}
+
+
+/*
+    Custom option
+    ---
+    Custom checkboxes & radio buttons
+*/
+
+/* option input for checkboxes and radio buttons */
+
+.c-option {
+  margin-right: var(--global-whitespace-sm);
+}
+
+/* checked state */
+
+.c-option--hidden:checked + .c-modelcontent__midtitle {
+  opacity: 1;
+  /* Transition */
+  -webkit-transition: opacity 0.3s 0s;
+  -moz-transition: opacity 0.3s 0s;
+  transition: opacity 0.3s 0s;
+
+}
+
+.c-option:focus + .c-modelcontent__midtitle {
+  /* border*/ 
+  color: var(--global-color-neutral-xx-dark);
+}
+
+
+
+
+
+
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/
+
+.u-hidden {
+  display: none;
+}
 
 .u-grid-itemcenter {
   justify-self: center !important;
@@ -1643,20 +1401,20 @@ No media query since this is the default in mobile first design
   }
 
   a[href]:after {
-    content: ' (' attr(href) ')';
+    content: " (" attr(href) ")";
   }
 
   abbr[title]:after {
-    content: ' (' attr(title) ')';
+    content: " (" attr(title) ")";
   }
 
   /*
     * Don't show links that are fragment identifiers,
     * or use the `javascript:` pseudo protocol
     */
-  a[href^='#']:after,
-  a[href^='javascript:']:after {
-    content: '';
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
   }
 
   pre {

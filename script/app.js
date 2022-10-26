@@ -53,9 +53,12 @@ showDataInModal = async (id) => {
   const modalImage = document.querySelector('.js-modal-image');
   const modalIngredients = document.querySelector('.js-modal-ingredients');
   const modalInstructions = document.querySelector('.js-modal-instructions');
+  const modalInfo = document.querySelector('.js-modal-info');
   const modalGlass = document.querySelector('.js-modal-glass');
   const modalAlcoholic = document.querySelector('.js-modal-alcoholic');
   const modalAlcoholicList = document.querySelector('.js-modal-alcoholic-list');
+  const radio = document.querySelectorAll('input[name="menue"]');
+
 
   // Get data from API
   const data = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
@@ -68,18 +71,57 @@ showDataInModal = async (id) => {
   modalImage.src = drink.drinks[0].strDrinkThumb;
   modalImage.alt = drink.drinks[0].strDrink;
 
+  // Clear checked radio and set on first & hide info
+  modalInfo.classList.add('u-hidden');
+  for (var i = 0; i < radio.length; i++) {
+    radio[i].checked = false;
+  }
+  radio[0].checked = true;
+
   // Set ingredients
+  modalIngredients.classList.remove('u-hidden');
   let ingredients = '';
+  let ingredientsCocktail = [];
   for (var i = 1; i < 16; i++) {
-    if (drink.drinks[0][`strIngredient${i}`]) {
-      ingredients += `<li class="c-modelcontent__list-item">${drink.drinks[0][`strIngredient${i}`]}</li>`;
+    if (drink.drinks[0][`strIngredient${i}`] != null) {
+      ingredients += `<li>${drink.drinks[0][`strIngredient${i}`]} - ${drink.drinks[0][`strMeasure${i}`]}</li>`;
+      ingredientsCocktail.push(drink.drinks[0][`strIngredient${i}`]);
     }
   }
-
   modalIngredients.innerHTML = ingredients;
 
 
+  // Event listener for radio button
 
+  radio.forEach((item) => {
+    item.addEventListener('change', (e) => {
+      // Hide both 
+      modalIngredients.classList.add('u-hidden');
+      modalInfo.classList.add('u-hidden');
+      // Get value of radio button
+      const value = e.target.value;
+      // If value is ingredients
+      if (value == 'ingredients') {
+        // Show ingredients
+        let ingredients = '';
+        for (var i = 1; i < 16; i++) {
+          if (drink.drinks[0][`strIngredient${i}`]) {
+            ingredients += `<li class="c-modelcontent__list-item">${drink.drinks[0][`strIngredient${i}`]}</li>`;
+          }
+        }
+        modalIngredients.classList.remove('u-hidden');
+        modalIngredients.innerHTML = ingredients;
+
+
+      }
+      if (value == 'info') {
+        // Remove hidden class
+        modalInfo.classList.remove('u-hidden');
+        // Show info
+        modalInfo.innerHTML = drink.drinks[0].strInstructions;
+      }
+    });
+  })
 
 
 }
@@ -129,6 +171,19 @@ showResult = async (data) => {
     // Get card and set data attribute
     const card = document.querySelector(`.js-card${i}`);
     card.setAttribute('data-id', drink.idDrink);
+
+    // Get icon
+    const icon = document.querySelectorAll(`.js-alcoholicon`);
+
+    // Check if drink is alcoholic
+    if (drink.strAlcoholic == 'Alcoholic' || drink.strAlcoholic == 'Optional alcohol') {
+      // Set img sr
+      icon[i].src = '/Assets/Alcoholic.svg';
+    }
+    else {
+      // Set img src
+      icon[i].src = '/Assets/Non-alcoholic.svg';
+    }
 
 
     // Visualize alcohol
