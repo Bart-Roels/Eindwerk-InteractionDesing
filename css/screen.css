@@ -840,6 +840,16 @@ input::placeholder {
   transition-duration: 0.3s;
 }
 
+/* Mobile media query */
+@media screen and (max-width: 768px) {
+  .c-model-container {
+    /* Width of the modal */
+    max-width: 90%;
+  }
+}
+
+
+
 .is-visible .c-model-container {
   /* -webkit-transform: translateY(50%);
   -moz-transform: translateY(50%);
