@@ -68,6 +68,18 @@ showDataInModal = async (id) => {
   modalImage.src = drink.drinks[0].strDrinkThumb;
   modalImage.alt = drink.drinks[0].strDrink;
 
+  // Set ingredients
+  let ingredients = '';
+  for (var i = 1; i < 16; i++) {
+    if (drink.drinks[0][`strIngredient${i}`]) {
+      ingredients += `<li class="c-modelcontent__list-item">${drink.drinks[0][`strIngredient${i}`]}</li>`;
+    }
+  }
+
+  modalIngredients.innerHTML = ingredients;
+
+
+
 
 
 }
