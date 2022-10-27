@@ -1,16 +1,18 @@
 let rawIngredinetsList;
 
-checkAlcohol = (drink, ingredientsCocktail) => {
+
+checkAlcohol = (ingredientsCocktail) => {
   // Make list of alcohol ingredients
+
   let alcoholList = [];
   // For evry item in json list check if it is in ingredients list of drink
   for (var i = 0; i < rawIngredinetsList['ingredients'].length; i++) {
     // If item is in list
-    if (ingredientsCocktail.includes(rawIngredinetsList['ingredients'][i]['strIngredient'])) {
+    if (ingredientsCocktail.includes(rawIngredinetsList['ingredients'][i]['strIngredient1'])) {
       // If alcohol is true of contain in title words as wodka or vodka
       if (rawIngredinetsList['ingredients'][i]['Alcoholic'] == 1) {
         // Add to alcohol list
-        alcoholList.push(rawIngredinetsList['ingredients'][i]['strIngredient']);
+        alcoholList.push(rawIngredinetsList['ingredients'][i]['strIngredient1']);
       }
     }
   }
@@ -32,7 +34,7 @@ visualizeAlcohol = (drinks) => {
   }
 
   // Get list of alcohol ingredients
-  let array = checkAlcohol(drink, ingredientsCocktail);
+  let array = checkAlcohol(ingredientsCocktail);
 
   // Compare in %
   let percentage = (array.length / ingredientsCocktail.length) * 100;
@@ -276,4 +278,5 @@ document.addEventListener('DOMContentLoaded', function () {
   // Get date from api
   getAPI();
   listenToCard();
+
 });
