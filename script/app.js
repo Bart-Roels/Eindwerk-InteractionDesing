@@ -2,17 +2,21 @@ let rawIngredinetsList;
 
 
 checkAlcohol = (ingredientsCocktail) => {
-  // Make list of alcohol ingredients
+
+  // Set to lowercase
+  var res = JSON.parse(JSON.stringify(rawIngredinetsList, function (a, b) {
+    return typeof b === "string" ? b.toLowerCase() : b
+  }));
 
   let alcoholList = [];
   // For evry item in json list check if it is in ingredients list of drink
-  for (var i = 0; i < rawIngredinetsList['ingredients'].length; i++) {
+  for (var i = 0; i < res['ingredients'].length; i++) {
     // If item is in list
-    if (ingredientsCocktail.includes(rawIngredinetsList['ingredients'][i]['strIngredient1'])) {
+    if (ingredientsCocktail.includes(res['ingredients'][i]['strIngredient1'])) {
       // If alcohol is true of contain in title words as wodka or vodka
-      if (rawIngredinetsList['ingredients'][i]['Alcoholic'] == 1) {
+      if (res['ingredients'][i]['Alcoholic'] == 1) {
         // Add to alcohol list
-        alcoholList.push(rawIngredinetsList['ingredients'][i]['strIngredient1']);
+        alcoholList.push(res['ingredients'][i]['strIngredient1']);
       }
     }
   }
@@ -29,7 +33,10 @@ visualizeAlcohol = (drinks) => {
   let ingredientsCocktail = [];
   for (var a = 1; a < 16; a++) {
     if (drink[`strIngredient${a}`] != null) {
-      ingredientsCocktail.push(drink[`strIngredient${a}`]);
+      // Set to lowercase
+      let ingredient = drink[`strIngredient${a}`].toLowerCase();
+      // Add to list
+      ingredientsCocktail.push(ingredient);
     }
   }
 
@@ -255,6 +262,7 @@ getIngredientData = async (url) => {
 
 getData = async (url) => {
   return fetch(url)
+    // Set items to lowercase and return as json
     .then((response) => response.json())
     .catch((error) => console.error(error));
 };
