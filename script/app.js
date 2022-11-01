@@ -1,12 +1,12 @@
 let rawIngredinetsList;
 
-
 checkAlcohol = (ingredientsCocktail) => {
-
   // Set to lowercase
-  var res = JSON.parse(JSON.stringify(rawIngredinetsList, function (a, b) {
-    return typeof b === "string" ? b.toLowerCase() : b
-  }));
+  var res = JSON.parse(
+    JSON.stringify(rawIngredinetsList, function (a, b) {
+      return typeof b === 'string' ? b.toLowerCase() : b;
+    })
+  );
 
   let alcoholList = [];
   // For evry item in json list check if it is in ingredients list of drink
@@ -49,9 +49,7 @@ visualizeAlcohol = (drinks) => {
   console.log(`Name => ${drink.strDrink}\nIngredienten => ${ingredientsCocktail}\nAlcohol => ${array}\nPercentage => ${percentage}`);
 
   return percentage;
-
-
-}
+};
 
 listenToClose = (modal) => {
   // Listen to close button
@@ -80,18 +78,18 @@ listenToClose = (modal) => {
       document.body.classList.remove('u-model-overflow');
     }
   });
-}
+};
 
 showDataInModal = async (id) => {
-
   const modalTitle = document.querySelector('.js-modal-title');
   const modalImage = document.querySelector('.js-modal-image');
   const modalIngredients = document.querySelector('.js-modal-ingredients');
   const ingredientsList = document.querySelector('.js-modal-ingredients-list');
   const modalInfo = document.querySelector('.js-modal-info');
   const cocktailStrength = document.querySelector('.js-cocktail-strength');
-  const radio = document.querySelectorAll('input[name="menue"]');
 
+  const ingredientButton = document.querySelector('.js-ingredient-button');
+  const stepButton = document.querySelector('.js-step-button');
 
   // Get data from API
   const data = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
@@ -104,19 +102,13 @@ showDataInModal = async (id) => {
   modalImage.src = drink.drinks[0].strDrinkThumb;
   modalImage.alt = drink.drinks[0].strDrink;
 
-  // Clear checked radio and set on first & hide info
-  modalInfo.classList.add('u-hidden');
-  for (var i = 0; i < radio.length; i++) {
-    radio[i].checked = false;
-  }
-  radio[0].checked = true;
-
-
   // Visualize alcohol
   let percentage = visualizeAlcohol(drink);
 
   // Set ingredients
   modalIngredients.classList.remove('u-hidden');
+  // Hide steps
+  modalInfo.classList.add('u-hidden');
   let ingredients = '';
   let ingredientsCocktail = [];
   for (var i = 1; i < 16; i++) {
@@ -136,60 +128,64 @@ showDataInModal = async (id) => {
 
   // Swich case based on percentage and set cocktail strength
   switch (true) {
-    case (percentage <= 0):
+    case percentage <= 0:
       cocktailStrength.innerHTML = 'Non-alcoholic';
       break;
-    case (percentage > 0 && percentage <= 25):
+    case percentage > 0 && percentage <= 25:
       cocktailStrength.innerHTML = 'Low';
       break;
-    case (percentage > 25 && percentage <= 50):
+    case percentage > 25 && percentage <= 50:
       cocktailStrength.innerHTML = 'Medium';
       break;
-    case (percentage > 50 && percentage <= 75):
+    case percentage > 50 && percentage <= 75:
       cocktailStrength.innerHTML = 'High';
       break;
-    case (percentage > 75):
+    case percentage > 75:
       cocktailStrength.innerHTML = 'Very strong';
       break;
     default:
       cocktailStrength.innerHTML = 'Unknown';
   }
 
+  // Set opacity to 1
+  ingredientButton.style.opacity = 1;
 
+  // Listen for click on step button
+  stepButton.addEventListener('click', () => {
+    // Set info
+    modalInfo.classList.remove('u-hidden');
+    // Set opacity to 1
+    stepButton.style.opacity = 1;
+    ingredientButton.style.opacity = '0.5';
+    // Set info
+    modalInfo.innerHTML = drink.drinks[0].strInstructions;
+    // Hide ingredients
+    modalIngredients.classList.add('u-hidden');
+  });
 
-  // Event listener for radio button
-  radio.forEach((item) => {
-    item.addEventListener('change', (e) => {
-      // Hide both 
-      modalIngredients.classList.add('u-hidden');
-      modalInfo.classList.add('u-hidden');
-      // Get value of radio button
-      const value = e.target.value;
-      // If value is ingredients
-      if (value == 'ingredients') {
-        // Show ingredients
-        let ingredients = '';
-        for (var i = 1; i < 16; i++) {
-          if (drink.drinks[0][`strIngredient${i}`]) {
-            ingredients += `<li class="c-modelcontent__list-item">${drink.drinks[0][`strIngredient${i}`]}</li>`;
-          }
-        }
-        modalIngredients.classList.remove('u-hidden');
-        ingredientsList.innerHTML = ingredients;
+  // Listen for click on ingredient button
+  ingredientButton.addEventListener('click', () => {
+    // Set ingredients
+    modalIngredients.classList.remove('u-hidden');
+    // Hide info
+    modalInfo.classList.add('u-hidden');
+    // Set opacity from child to 1
+    ingredientButton.style.opacity = 1;
+    stepButton.style.opacity = 0.5;
+    // Show ingredients
+    // Show ingredients
+    let ingredients = '';
+    for (var i = 1; i < 16; i++) {
+      if (drink.drinks[0][`strIngredient${i}`]) {
+        ingredients += `<li class="c-modelcontent__list-item">${drink.drinks[0][`strIngredient${i}`]}</li>`;
       }
-      if (value == 'info') {
-        // Remove hidden class
-        modalInfo.classList.remove('u-hidden');
-        // Show info
-        modalInfo.innerHTML = drink.drinks[0].strInstructions;
-      }
-    });
-  })
-
-  //
+    }
+    modalIngredients.classList.remove('u-hidden');
+    ingredientsList.innerHTML = ingredients;
+  });
 
 
-}
+};
 
 listenToCard = () => {
   const buttons = document.querySelectorAll('.js-button');
@@ -211,10 +207,9 @@ listenToCard = () => {
 
       // Show data in modal
       showDataInModal(id);
-
     });
   }
-}
+};
 
 showResult = async (data) => {
   for (var i = 0; i < 9; i++) {
@@ -244,13 +239,10 @@ showResult = async (data) => {
     if (drink.strAlcoholic == 'Alcoholic' || drink.strAlcoholic == 'Optional alcohol') {
       // Set img sr
       icon[i].src = '/Assets/Alcoholic.svg';
-    }
-    else {
+    } else {
       // Set img src
       icon[i].src = '/Assets/Non-alcoholic.svg';
     }
-
-
   }
 };
 
@@ -261,10 +253,12 @@ getIngredientData = async (url) => {
 };
 
 getData = async (url) => {
-  return fetch(url)
-    // Set items to lowercase and return as json
-    .then((response) => response.json())
-    .catch((error) => console.error(error));
+  return (
+    fetch(url)
+      // Set items to lowercase and return as json
+      .then((response) => response.json())
+      .catch((error) => location.reload())
+  );
 };
 
 let getAPI = async (lat, lon) => {
@@ -286,5 +280,4 @@ document.addEventListener('DOMContentLoaded', function () {
   // Get date from api
   getAPI();
   listenToCard();
-
 });
