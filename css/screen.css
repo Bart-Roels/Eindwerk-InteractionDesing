@@ -625,7 +625,6 @@ input::placeholder {
 */
 
 
-
 .c-card {
   transition: 0.3s;
   pointer-events: none;
@@ -790,6 +789,7 @@ input::placeholder {
   height: 100%;
   width: 100%;
   overflow: auto;
+  
   background-color: rgba(0, 0, 0, 0.571);
   opacity: 0;
   visibility: hidden;
@@ -912,10 +912,10 @@ input::placeholder {
 
 /* Mobile first */
 @media (max-width: 768px) {
-
   /* Image */
   .c-model-image {
     max-height: 300px;
+    width: 100%;
     /* Center the image */
     margin-left: auto;
     margin-right: auto;
@@ -956,8 +956,6 @@ input::placeholder {
   flex-basis: 50%;
   /* Center the text */
   text-align: center;
-  border-bottom: 1px solid black;
-  opacity: 0.5;
 }
 
 .c-modal-menue {
@@ -968,6 +966,11 @@ input::placeholder {
   /* Border bottom */
 }
 
+.c-modal-buttons {
+  flex-basis: 50%;
+  border-bottom: 1px solid black;
+  opacity: 0.5;
+}
 
 /*
     Custom option
