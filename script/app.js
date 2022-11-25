@@ -92,7 +92,7 @@ showDataInModal = async (id) => {
   const stepButton = document.querySelector('.js-step-button');
 
   // Get data from API
-  const data = getCocktailDate(id);
+  const data = getCocktailDate(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
   const drink = await data.json();
 
   // Set title
@@ -247,18 +247,21 @@ showResult = async (data) => {
 };
 
 getCocktailDate = async (id) => {
-  const data = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
-  return data;
+  return fetch(url)
+  .then((r) => r.json())
+  .catch((e) => console.error(e));
 }
 
 getIngredientData = async (url) => {
-  const data = await fetch(url);
-  return data;
+  return fetch(url)
+    .then((r) => r.json())
+    .catch((e) => console.error(e));
 };
 
 getData = async (url) => {
-  const data = await fetch(url);
-  return data;
+  return fetch(url)
+    .then((r) => r.json())
+    .catch((e) => console.error(e));
 };
 
 let getAPI = async (lat, lon) => {
