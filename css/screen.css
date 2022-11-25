@@ -899,7 +899,7 @@ input::placeholder {
 .c-model-image {
   /* Responsive image */
   max-width: 100%;
-  max-height: 400px;
+  max-height: 25rem;
   /* round corners */
   border-radius: 4px;
 }
