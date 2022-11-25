@@ -92,9 +92,9 @@ showDataInModal = async (id) => {
   const stepButton = document.querySelector('.js-step-button');
 
   // Get data from API
-  const data = await getCocktailDate(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
+  const data = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
   const drink = await data.json();
-
+  
   // Set title
   modalTitle.innerHTML = drink.drinks[0].strDrink;
 
@@ -246,7 +246,7 @@ showResult = async (data) => {
   }
 };
 
-getCocktailDate = async (id) => {
+getCocktailDate = async (url) => {
   return fetch(url)
   .then((r) => r.json())
   .catch((e) => console.error(e));
