@@ -46,7 +46,7 @@ visualizeAlcohol = (drinks) => {
   // Compare in %
   let percentage = (array.length / ingredientsCocktail.length) * 100;
 
-  // console.log(`Name => ${drink.strDrink}\nIngredienten => ${ingredientsCocktail}\nAlcohol => ${array}\nPercentage => ${percentage}`);
+  console.log(`Name => ${drink.strDrink}\nIngredienten => ${ingredientsCocktail}\nAlcohol => ${array}\nPercentage => ${percentage}`);
 
   return percentage;
 };
@@ -94,7 +94,7 @@ showDataInModal = async (id) => {
   // Get data from API
   const data = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
   const drink = await data.json();
-  
+
   // Set title
   modalTitle.innerHTML = drink.drinks[0].strDrink;
 
@@ -193,11 +193,11 @@ listenToCard = () => {
     buttons[i].addEventListener('click', (e) => {
       // Get data-id from card
       const id = e.currentTarget.getAttribute('data-id');
-      // console.log(`OPEN ==> ${id}`);
+      console.log(`OPEN ==> ${id}`);
 
       // Open modal
       const modal = document.querySelector('.js-modal');
-      // console.log(modal);
+      console.log(modal);
       modal.classList.add('is-visible');
       // Add overflow hidden to body
       document.body.classList.add('u-model-overflow');
@@ -246,22 +246,19 @@ showResult = async (data) => {
   }
 };
 
-getCocktailDate = async (url) => {
-  return fetch(url)
-  .then((r) => r.json())
-  .catch((e) => console.error(e));
-}
-
 getIngredientData = async (url) => {
-  return fetch(url)
-    .then((r) => r.json())
-    .catch((e) => console.error(e));
+  return fetch('script/ingredients.json')
+    .then((response) => response.json())
+    .catch((error) => console.error(error));
 };
 
 getData = async (url) => {
-  return fetch(url)
-    .then((r) => r.json())
-    .catch((e) => console.error(e));
+  return (
+    fetch(url)
+      // Set items to lowercase and return as json
+      .then((response) => response.json())
+      .catch((error) => location.reload())
+  );
 };
 
 let getAPI = async (lat, lon) => {
