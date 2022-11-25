@@ -1,7 +1,7 @@
 /* ELEMENTS */
 
 let rawIngredinetsList;
-var modalTitle, modalImage, modalIngredients, ingredientsList, modalInfo, cocktailStrength, ingredientButton, stepButton, foto, modal
+var main, modalTitle, modalImage, modalIngredients, ingredientsList, modalInfo, cocktailStrength, ingredientButton, stepButton, foto, modal, closeButton
 
 /* DATA ANA FUNCTIONS */
 checkAlcohol = (ingredientsCocktail) => {
@@ -53,7 +53,6 @@ visualizeAlcohol = (drink) => {
 /* LISTEN TO CLOSE BUTTON */
 listenToClose = (modal) => {
   // Listen to close button
-  const closeButton = document.querySelector('.js-modal-close');
   closeButton.addEventListener('click', () => {
     modal.classList.remove('is-visible');
     // Remove overflow hidden to body
@@ -172,6 +171,10 @@ showDataInModal = async (id) => {
     modalIngredients.classList.remove('u-hidden');
     ingredientsList.innerHTML = ingredients;
   });
+
+  // Set focus to close button
+  closeButton.focus();
+
 };
 
 /* LISTEN TO CLICK ON COCKTAIL */
@@ -267,6 +270,8 @@ document.addEventListener('DOMContentLoaded', async function () {
   modal = document.querySelector('.js-modal');
   ingredientButton = document.querySelector('.js-ingredient-button');
   stepButton = document.querySelector('.js-step-button');
+  closeButton = document.querySelector('.js-modal-close');
+  main = document.querySelector('.js-main');
 
   // Show data if data is available
   if (data) {
