@@ -93,7 +93,7 @@ showDataInModal = async (id) => {
 
   // Get data from API
   const data = await getCocktailDate(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
-  const drink = data.json();
+  const drink = await data.json();
 
   // Set title
   modalTitle.innerHTML = drink.drinks[0].strDrink;
