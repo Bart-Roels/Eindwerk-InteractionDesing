@@ -1,5 +1,9 @@
-let rawIngredinetsList;
+/* ELEMENTS */
 
+let rawIngredinetsList;
+var modalTitle, modalImage, modalIngredients, ingredientsList, modalInfo, cocktailStrength, ingredientButton, stepButton, foto, modal
+
+/* DATA ANA FUNCTIONS */
 checkAlcohol = (ingredientsCocktail) => {
   // Set to lowercase
   var res = JSON.parse(
@@ -23,12 +27,7 @@ checkAlcohol = (ingredientsCocktail) => {
   return alcoholList;
 };
 
-visualizeAlcohol = (drinks) => {
-  // Visualize alcohol
-
-  let drink = drinks.drinks[0];
-
-  // Get all ingredients
+visualizeAlcohol = (drink) => {
   // Make list of all ingredients in drink
   let ingredientsCocktail = [];
   for (var a = 1; a < 16; a++) {
@@ -46,11 +45,12 @@ visualizeAlcohol = (drinks) => {
   // Compare in %
   let percentage = (array.length / ingredientsCocktail.length) * 100;
 
-  console.log(`Name => ${drink.strDrink}\nIngredienten => ${ingredientsCocktail}\nAlcohol => ${array}\nPercentage => ${percentage}`);
+  // console.log(`Name => ${drink.strDrink}\nIngredienten => ${ingredientsCocktail}\nAlcohol => ${array}\nPercentage => ${percentage}`);
 
   return percentage;
 };
 
+/* LISTEN TO CLOSE BUTTON */
 listenToClose = (modal) => {
   // Listen to close button
   const closeButton = document.querySelector('.js-modal-close');
@@ -80,30 +80,20 @@ listenToClose = (modal) => {
   });
 };
 
+/* SHOW DATA IN MODAL */
 showDataInModal = async (id) => {
-  const modalTitle = document.querySelector('.js-modal-title');
-  const modalImage = document.querySelector('.js-modal-image');
-  const modalIngredients = document.querySelector('.js-modal-ingredients');
-  const ingredientsList = document.querySelector('.js-modal-ingredients-list');
-  const modalInfo = document.querySelector('.js-modal-info');
-  const cocktailStrength = document.querySelector('.js-cocktail-strength');
-
-  const ingredientButton = document.querySelector('.js-ingredient-button');
-  const stepButton = document.querySelector('.js-step-button');
-
   // Get data from API
-  const data = await fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
-  const drink = await data.json();
+  const data = await getData(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
 
   // Set title
-  modalTitle.innerHTML = drink.drinks[0].strDrink;
+  modalTitle.innerHTML = data.drinks[0].strDrink;
 
   // Set image
-  modalImage.src = drink.drinks[0].strDrinkThumb;
-  modalImage.alt = drink.drinks[0].strDrink;
+  modalImage.src = data.drinks[0].strDrinkThumb;
+  modalImage.alt = data.drinks[0].strDrink;
 
   // Visualize alcohol
-  let percentage = visualizeAlcohol(drink);
+  let percentage = visualizeAlcohol(data.drinks[0]);
 
   // Set ingredients
   modalIngredients.classList.remove('u-hidden');
@@ -112,18 +102,17 @@ showDataInModal = async (id) => {
   let ingredients = '';
   let ingredientsCocktail = [];
   for (var i = 1; i < 16; i++) {
-    if (drink.drinks[0][`strIngredient${i}`] != null) {
-      ingredients += `<li>${drink.drinks[0][`strIngredient${i}`]} - ${drink.drinks[0][`strMeasure${i}`]}</li>`;
-      ingredientsCocktail.push(drink.drinks[0][`strIngredient${i}`]);
+    if (data.drinks[0][`strIngredient${i}`] != null) {
+      ingredients += `<li>${data.drinks[0][`strIngredient${i}`]} - ${data.drinks[0][`strMeasure${i}`]}</li>`;
+      ingredientsCocktail.push(data.drinks[0][`strIngredient${i}`]);
     }
   }
   ingredientsList.innerHTML = ingredients;
 
-  // Set percentage in percentage bara
+  // Set percentage in percentage bar
   const percentageBar = document.querySelector('.js-modal-percentage-bar');
   percentageBar.style.width = `${percentage}%`;
-  // Set percentage in percentage text
-  // Round percentage
+  // Set percentage in percentage text & Round percentage
   percentageBar.innerHTML = `${Math.round(percentage)}%`;
 
   // Swich case based on percentage and set cocktail strength
@@ -158,7 +147,7 @@ showDataInModal = async (id) => {
     stepButton.style.opacity = 1;
     ingredientButton.style.opacity = '0.5';
     // Set info
-    modalInfo.innerHTML = drink.drinks[0].strInstructions;
+    modalInfo.innerHTML = data.drinks[0].strInstructions;
     // Hide ingredients
     modalIngredients.classList.add('u-hidden');
   });
@@ -176,28 +165,26 @@ showDataInModal = async (id) => {
     // Show ingredients
     let ingredients = '';
     for (var i = 1; i < 16; i++) {
-      if (drink.drinks[0][`strIngredient${i}`]) {
-        ingredients += `<li class="c-modelcontent__list-item">${drink.drinks[0][`strIngredient${i}`]}</li>`;
+      if (data.drinks[0][`strIngredient${i}`]) {
+        ingredients += `<li class="c-modelcontent__list-item">${data.drinks[0][`strIngredient${i}`]}</li>`;
       }
     }
     modalIngredients.classList.remove('u-hidden');
     ingredientsList.innerHTML = ingredients;
   });
-
-
 };
 
+/* LISTEN TO CLICK ON COCKTAIL */
 listenToCard = () => {
   const buttons = document.querySelectorAll('.js-button');
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', (e) => {
       // Get data-id from card
       const id = e.currentTarget.getAttribute('data-id');
-      console.log(`OPEN ==> ${id}`);
 
-      // Open modal
-      const modal = document.querySelector('.js-modal');
-      console.log(modal);
+      // console.log(`OPEN ==> ${id}`);
+      // console.log(modal);
+
       modal.classList.add('is-visible');
       // Add overflow hidden to body
       document.body.classList.add('u-model-overflow');
@@ -207,25 +194,25 @@ listenToCard = () => {
 
       // Show data in modal
       showDataInModal(id);
+
     });
   }
 };
 
+/* SHOW DATA IN GRID */
 showResult = async (data) => {
   for (var i = 0; i < 9; i++) {
     // Define drink
     let drink = data.drinks[i];
 
-    // Get dom elements
-    const foto = document.querySelector(`.js-foto${i}`);
-    // Set photo url from API as src
+  
+    // Set photo url from API as src and alt 
+    foto = document.querySelector(`.js-foto${i}`);
     foto.src = drink.strDrinkThumb;
-    // Set alt
     foto.alt = drink.strDrink;
 
-    // Get name element
-    const name = document.querySelector(`.js-naam${i}`);
     // Set name from API as text
+    const name = document.querySelector(`.js-naam${i}`);
     name.innerHTML = drink.strDrink;
 
     // Get card and set data attribute
@@ -246,12 +233,7 @@ showResult = async (data) => {
   }
 };
 
-getIngredientData = async (url) => {
-  return fetch('script/ingredients.json')
-    .then((response) => response.json())
-    .catch((error) => console.error(error));
-};
-
+/* API DATA */
 getData = async (url) => {
   return (
     fetch(url)
@@ -261,23 +243,35 @@ getData = async (url) => {
   );
 };
 
-let getAPI = async (lat, lon) => {
+let getCocktails = async () => {
   // build the url
   url = `https://www.thecocktaildb.com/api/json/v2/9973533/randomselection.php`;
   // Get data from API
-  const data = await getData(url);
-  // Get ingredients
-  rawIngredinetsList = await getIngredientData();
-
-  // If data is not empty
-  if (data.drinks) {
-    // Call show function
-    showResult(data);
-  }
+  let data = await getData(url);
+  return data;
 };
 
-document.addEventListener('DOMContentLoaded', function () {
-  // Get date from api
-  getAPI();
-  listenToCard();
+/* DOM ELETMENTS */
+document.addEventListener('DOMContentLoaded', async function () {
+  // Get api data
+  rawIngredinetsList = await getData('script/ingredients.json');
+  let data = await getCocktails();
+
+  // Dom elements
+  modalTitle = document.querySelector('.js-modal-title');
+  modalImage = document.querySelector('.js-modal-image');
+  modalIngredients = document.querySelector('.js-modal-ingredients');
+  ingredientsList = document.querySelector('.js-modal-ingredients-list');
+  modalInfo = document.querySelector('.js-modal-info');
+  cocktailStrength = document.querySelector('.js-cocktail-strength');
+  modal = document.querySelector('.js-modal');
+  ingredientButton = document.querySelector('.js-ingredient-button');
+  stepButton = document.querySelector('.js-step-button');
+
+  // Show data if data is available
+  if (data) {
+    showResult(data);
+    listenToCard();
+  }
+
 });
