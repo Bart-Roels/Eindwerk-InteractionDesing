@@ -92,8 +92,8 @@ showDataInModal = async (id) => {
   const stepButton = document.querySelector('.js-step-button');
 
   // Get data from API
-  const data = getCocktailDate(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
-  const drink = await data.json();
+  const data = await getCocktailDate(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
+  const drink = data.json();
 
   // Set title
   modalTitle.innerHTML = drink.drinks[0].strDrink;
