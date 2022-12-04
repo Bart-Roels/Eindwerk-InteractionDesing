@@ -558,23 +558,6 @@ input::placeholder {
   animation: mymove 3s;
 }
 
-@keyframes mymove {
-  /* Fill slowly the cocktail whit orange collor */
-  /* 100% {
-    transform: translateY(0);
-    fill: #0055cc;
-  } */
-  /* to {
-    transform: translateY(0);
-    fill: #0055cc;
-  }
-
-  from {
-    transform: translateY(3%);
-    fill: #11cc00;
-  } */
-}
-
 ::-webkit-scrollbar {
   width: 20px;
 }
@@ -837,13 +820,6 @@ input::placeholder {
   transition-duration: 0.3s;
 }
 
-/* Mobile media query */
-@media screen and (max-width: 48rem) {
-  .c-model-container {
-    /* Width of the modal */
-    max-width: 90%;
-  }
-}
 
 .is-visible .c-model-container {
   /* -webkit-transform: translateY(50%);
@@ -851,6 +827,18 @@ input::placeholder {
   -ms-transform: translateY(50%);
   -o-transform: translateY(50%); */
   transform: translateY(15%);
+}
+
+
+/* Mobile media query */
+@media screen and (max-width: 48rem) {
+  .c-model-container {
+    max-width: 90%;
+  }
+
+  .is-visible .c-model-container {
+    transform: translateY(5%);
+  }
 }
 
 /* Header */
