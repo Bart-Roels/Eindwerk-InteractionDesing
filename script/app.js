@@ -1,7 +1,7 @@
 /* ELEMENTS */
 
 let rawIngredinetsList;
-var main, modalTitle, modalImage, modalIngredients, ingredientsList, modalInfo, cocktailStrength, ingredientButton, stepButton, foto, modal, closeButton
+var main, modalTitle, modalImage, modalIngredients, ingredientsList, modalInfo, cocktailStrength, ingredientButton, stepButton, foto, modal, closeButton;
 
 /* DATA ANA FUNCTIONS */
 checkAlcohol = (ingredientsCocktail) => {
@@ -57,6 +57,11 @@ listenToClose = (modal) => {
     modal.classList.remove('is-visible');
     // Remove overflow hidden to body
     document.body.classList.remove('u-model-overflow');
+
+    document.querySelectorAll('.js-button').forEach((input) => {
+      input.tabIndex = 1;
+    });
+
   });
 
   // Listen to close button or click outside modal
@@ -66,6 +71,11 @@ listenToClose = (modal) => {
       modal.classList.remove('is-visible');
       // Remove overflow hidden to body
       document.body.classList.remove('u-model-overflow');
+
+      document.querySelectorAll('.js-button').forEach((input) => {
+        input.tabIndex = 1;
+      });
+
     }
   });
 
@@ -75,8 +85,14 @@ listenToClose = (modal) => {
       modal.classList.remove('is-visible');
       // Remove overflow hidden to body
       document.body.classList.remove('u-model-overflow');
+
+      document.querySelectorAll('.js-button').forEach((input) => {
+        input.tabIndex = 1;
+      });
+
     }
   });
+
 };
 
 /* SHOW DATA IN MODAL */
@@ -172,6 +188,10 @@ showDataInModal = async (id) => {
     ingredientsList.innerHTML = ingredients;
   });
 
+  document.querySelectorAll('.js-button').forEach((input) => {
+    input.tabIndex = -1;
+  });
+
   // Set focus to close button
   closeButton.focus();
 
@@ -202,13 +222,60 @@ listenToCard = () => {
   }
 };
 
+/* LISTEN TO REFRESH BUTTON */
+listenToRefresh = () => {
+  // Add event listener to all refresh buttons
+  const refreshButtons = document.querySelectorAll('.js-refresh-button');
+  // Event listener
+  for (const button of refreshButtons) { 
+    button.addEventListener('click', async () => {
+      // Add is rotating class
+      await button.classList.add('is-rotating');
+      // Remove is rotating class
+      let data = await getCocktails();
+      showResult(data);
+    });
+  }
+}
+
 /* SHOW DATA IN GRID */
 showResult = async (data) => {
+  // Remove is rotating class
+  const refreshButtons = document.querySelectorAll('.js-refresh-button');
+  for (const button of refreshButtons) {
+    button.classList.remove('is-rotating');
+  }
+
   for (var i = 0; i < 9; i++) {
     // Define drink
     let drink = data.drinks[i];
 
-  
+    // Set ingredients
+    ingredients = document.querySelector(`.js-ingredientsdescription${i}`);
+
+    // Set ingredients
+
+    let ingredientsCocktail = [];
+    for (var a = 1; a < 16; a++) {
+      if (drink[`strIngredient${a}`] != null) {
+        // Set to lowercase
+        let ingredient = drink[`strIngredient${a}`].toLowerCase();
+        // Add to list
+        ingredientsCocktail.push(ingredient);
+      }
+    }
+
+    // Get list of alcohol ingredients
+    let array = checkAlcohol(ingredientsCocktail);
+
+    // Check if array is empty otherwise hide ingredients
+    if (array.length == 0) {
+      ingredients.innerHTML = 'No alcohol';
+    } else {
+      // Set only first 3 ingredients
+      ingredients.innerHTML = array.slice(0, 3).join(', ');
+    }
+    
     // Set photo url from API as src and alt 
     foto = document.querySelector(`.js-foto${i}`);
     foto.src = drink.strDrinkThumb;
@@ -225,13 +292,20 @@ showResult = async (data) => {
     // Get icon
     const icon = document.querySelectorAll(`.js-alcoholicon`);
 
+    // Get all js-alcoholcaption elements
+    // const caption = document.querySelectorAll(`.js-alcoholcaption`);
+    // caption[i].classList.add('u-hidden');
+    // caption[i].classList.remove('u-hidden');
+
     // Check if drink is alcoholic
     if (drink.strAlcoholic == 'Alcoholic' || drink.strAlcoholic == 'Optional alcohol') {
       // Set img sr
       icon[i].src = '/Assets/Alcoholic.svg';
+      
     } else {
       // Set img src
       icon[i].src = '/Assets/Non-alcoholic.svg';
+      // If drink is non-alcoholic, display caption
     }
   }
 };
@@ -272,6 +346,9 @@ document.addEventListener('DOMContentLoaded', async function () {
   stepButton = document.querySelector('.js-step-button');
   closeButton = document.querySelector('.js-modal-close');
   main = document.querySelector('.js-main');
+
+  // Listen to refresh button
+  listenToRefresh();
 
   // Show data if data is available
   if (data) {

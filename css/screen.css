@@ -271,33 +271,22 @@ input::placeholder {
   padding: var(--global-whitespace) var(--global-whitespace);
 }
 
-.o-row-main {
-  padding: 0 0 var(--global-whitespace-xl) 0;
-}
-
 .o-row-header {
   border-bottom: 0.3px solid #0d141a;
   border-bottom: 1px solid rgba(13, 26, 26, 0.1);
-
-  padding-left: var(--global-whitespace);
-  padding-right: var(--global-whitespace);
-  padding-bottom: var(--global-whitespace);
-  padding-top: var(--global-whitespace);
-
+  padding: var(--global-whitespace) var(--global-whitespace) var(--global-whitespace) var(--global-whitespace);
   /* Background color */
   background-color: rgba(255, 255, 255, 0.9);
   /* Set element over other elements */
   z-index: 50;
   /* Margin under border */
-  margin-bottom: 48px;
+  margin-bottom: 3rem;
   /* Stick to top */
   position: sticky;
   top: 0;
-  /* Set opacity to 0.5 */
 }
 
 /* size modifiers */
-
 .o-row--lg {
   padding-top: var(--global-whitespace-xl);
   padding-bottom: var(--global-whitespace);
@@ -310,15 +299,8 @@ input::placeholder {
 
 @media (min-width: 768px) {
   .o-row {
-    padding-left: var(--global-whitespace-xl);
-    padding-right: var(--global-whitespace-xl);
-  }
-}
-
-@media (min-width: 992px) {
-  .o-row--xl {
-    padding-top: 96px;
-    padding-bottom: var(--global-whitespace-xxl);
+    position: relative;
+    padding: var(--global-whitespace-xl) var(--global-whitespace-xl);
   }
 }
 
@@ -644,7 +626,15 @@ input::placeholder {
   /* Center on the y axis */
   align-items: center;
 
+}
 
+.c-card-caption {
+  /* Typography */
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.5;
+  /* Center them on the y axis */
+  align-items: center;
 }
 
 .c-card-title {
@@ -661,6 +651,17 @@ input::placeholder {
 .c-card-icon {
   height: 2.5rem;
   width: 2.5rem;
+}
+
+.c-card-description {
+  /* Center text to left */
+  text-align: left;
+  /* Font size 16px */
+  font-size: 0.8rem;
+  /* Line height 24px */
+  line-height: 1.5rem;
+  /* Font weight 400 */
+  font-weight: 400;
 }
 
 /* 
@@ -844,8 +845,6 @@ input::placeholder {
   }
 }
 
-
-
 .is-visible .c-model-container {
   /* -webkit-transform: translateY(50%);
   -moz-transform: translateY(50%);
@@ -899,10 +898,16 @@ input::placeholder {
 .c-model-image {
   /* Responsive image */
   max-width: 100%;
-  max-height: 400px;
+  max-height: 25rem;
   /* round corners */
   border-radius: 4px;
+
+  /* Center the image */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 
 /* Mobile first */
 @media (max-width: 48rem) {
@@ -968,10 +973,8 @@ input::placeholder {
 /*
     Custom option
     ---
-    Custom checkboxes & radio buttons
 */
 
-/* option input for checkboxes and radio buttons */
 
 .c-option {
   margin-right: var(--global-whitespace-sm);
@@ -1013,6 +1016,51 @@ input::placeholder {
   transition: width 1s ease-in-out;
   align-items: center;
 
+}
+
+/* Rotate svg inside */ 
+.is-rotating svg {
+  /* Smooth 360 rotation */
+  -webkit-animation: spin 1s linear;
+  -moz-animation: spin 1s linear ;
+  animation: spin 1s linear;
+  animation-iteration-count: 1;
+
+}
+
+@-moz-keyframes spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
 }
 
 

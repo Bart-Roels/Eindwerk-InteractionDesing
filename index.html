@@ -1,190 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>CocktailCraft</title>
+    <meta name="description" content="Get 8 random cocktails!" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="msapplication-TileColor" content="#3385FF" />
+    <meta name="theme-color" content="#3385FF" />
+    <meta name="keywords" content="Cocktail, Get random cocktail" />
+    <meta name="author" content="Bart Roels" />
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="x-ua-compatible" content="ie=edge" />
-  <title>CocktailCraft</title>
-  <meta name="description" content="Get 8 random cocktails!" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="msapplication-TileColor" content="#3385FF" />
-  <meta name="theme-color" content="#3385FF" />
-  <meta name="keywords" content="Cocktail, Get random cocktail" />
-  <meta name="author" content="Bart Roels" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="Assets/Cocktail.svg" />
+    <link rel="icon" type="image/png" sizes="16x16" href="Assets/Cocktail.svg" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#3385FF" />
 
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="Assets/Cocktail.svg" />
-  <link rel="icon" type="image/png" sizes="16x16" href="Assets/Cocktail.svg" />
-  <link rel="manifest" href="site.webmanifest" />
-  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#3385FF" />
+    <!--Letter-->
+    <link rel="stylesheet" href="https://use.typekit.net/nvl3mkf.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/screen.css" />
+    <script src="/script/app.js"></script>
+  </head>
 
-  <!--Letter-->
-  <link rel="stylesheet" href="https://use.typekit.net/nvl3mkf.css" />
-  <link rel="stylesheet" href="css/normalize.css" />
-  <link rel="stylesheet" href="css/screen.css" />
-  <script src="/script/app.js"></script>
-</head>
-
-<body>
-  <!--Header part -->
-  <header class="o-row o-row-header">
-    <div class="o-container">
-      <div class="c-header">
-        <!--Logo-->
-
-        <h1 class="c-logo u-mb-clear">
-          <img class="c-logo__symbol" src="Assets/Cocktail.svg" alt="Logo of the site" />
-          CocktailCraft
-        </h1>
-        <div class="c-header__nav">
-          <nav class="c-nav">
-            <ul class="o-list c-nav__list u-mb-clear">
-              <li class="c-nav__item">
-                <a aria-label="Refresh cocktails" class="js-index c-nav__link" href="./index.html"><svg alt="Refrsh" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg></a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div class="c-header__mobile-nav-trigger">
-          <button class="o-button-reset c-nav-trigger js-toggle-nav">
-            <img class="c-nav-trigger__svg" src="" alt="Menu" />
-          </button>
+  <body>
+    <!--Header part -->
+    <header class="o-row-header">
+      <div class="o-container">
+        <div class="c-header">
+          <!--Logo-->
+          <h1 class="c-logo u-mb-clear">
+            <img class="c-logo__symbol" src="Assets/Cocktail.svg" alt="Logo of the site" />
+            CocktailCraft
+          </h1>
+          <div class="c-header__nav">
+            <nav class="c-nav">
+              <ul class="o-list c-nav__list u-mb-clear">
+                <li class="c-nav__item">
+                  <button aria-label="Refresh cocktails" class="o-button-reset js-refresh-button">
+                    <svg alt="Refrsh" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                      <path d="M0 0h24v24H0V0z" fill="none" />
+                      <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+                    </svg>
+                  </button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="c-header__mobile-nav-trigger">
+            <button  aria-label="Refresh cocktails" class="o-button-reset js-refresh-button">
+              <svg alt="Refrsh" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <!--Main part --> 
-  <!--Coktail 1 -->
-  <main class="o-row js-main">
-    <div class="o-girdcontainer">
-      <button class="js-card0 o-button-reset js-button" data-id="11007">
-        <div class="c-card">
-          <img class="js-foto0 c-card-photo" src="" alt="Avatar" />
-          <div class="c-card-text">
-            <h2 class="c-card-title u-mb-clear  js-naam0 ">Cocktail 1</h2>
-            <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic"> 
+    <!--Main part -->
+    <!--Coktail 1 -->
+    <main class="o-row u-pt-clear js-main">
+      <div class="o-girdcontainer">
+        <button class="js-card0 o-button-reset js-button" data-id="11007">
+          <div class="c-card">
+            <img class="js-foto0 c-card-photo" src="" alt="Avatar" />
+            <div class="c-card-text">
+              <div>
+                <h2 class="c-card-title u-mb-clear js-naam0">Cocktail 1</h2>
+                <p class="c-card-description u-mb-clear js-ingredientsdescription0">Ingredient 1</p>
+              </div>
+              <div class="c-card-alcohol">
+                <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic" />
+                <!-- Alcohol free caption -->
+                <!-- <p class="c-card-caption u-mb-clear u-hidden js-alcoholcaption">0.0%</p> -->
+              </div>
+            </div>
           </div>
-        </div>
-      </button>
+        </button>
 
-      <!--Coktail 2 -->
-      <button class="js-card1 o-button-reset js-button" data-id="11007">
-        <div class="c-card">
-          <img class="js-foto1 c-card-photo" src="" alt="Avatar" />
-          <div class="c-card-text">
-            <h2 class="c-card-title u-mb-clear  js-naam1">Cocktail 2</h2>
-            <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic">
-
+        <!--Coktail 2 -->
+        <button class="js-card1 o-button-reset js-button" data-id="11007">
+          <div class="c-card">
+            <img class="js-foto1 c-card-photo" src="" alt="Avatar" />
+            <div class="c-card-text">
+              <div>
+                <h2 class="c-card-title u-mb-clear js-naam1">Cocktail 2</h2>
+                <p class="c-card-description u-mb-clear js-ingredientsdescription1">Ingredient 1</p>
+              </div>
+              <div class="c-card-alcohol">
+                <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic" />
+                <!-- Alcohol free caption -->
+                <!-- <p class="c-card-caption u-mb-clear u-hidden js-alcoholcaption">0.0%</p> -->
+              </div>
+            </div>
           </div>
-        </div>
-      </button>
+        </button>
 
-      <!--Coktail 3 -->
-      <button class="js-card2 o-button-reset js-button" data-id="11007">
-        <div class="c-card">
-          <img class="js-foto2 c-card-photo" src="" alt="Avatar" style="width: 100%" />
-          <div class="c-card-text">
-            <h2 class="c-card-title u-mb-clear  js-naam2">Cocktail 3</h2>
-            <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic">
-
+        <!--Coktail 3 -->
+        <button class="js-card2 o-button-reset js-button" data-id="11007">
+          <div class="c-card">
+            <img class="js-foto2 c-card-photo" src="" alt="Avatar" style="width: 100%" />
+            <div class="c-card-text">
+              <div>
+                <h2 class="c-card-title u-mb-clear js-naam2">Cocktail 3</h2>
+                <p class="c-card-description u-mb-clear js-ingredientsdescription2">Ingredient 1</p>
+              </div>
+              <div class="c-card-alcohol">
+                <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic" />
+                <!-- Alcohol free caption -->
+                <p class="c-card-caption u-mb-clea u-hidden js-alcoholcaption">0.0%</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </button>
+        </button>
 
-      <!--Coktail 4 -->
-      <button class="js-card3 o-button-reset js-button" data-id="11007">
-        <div class="c-card">
-          <img class="js-foto3 c-card-photo" src="" alt="Avatar" style="width: 100%" />
-          <div class="c-card-text">
-            <h2 class="c-card-title u-mb-clear  js-naam3">Cocktail 4</h2>
-            <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic">
-
+        <!--Coktail 4 -->
+        <button class="js-card3 o-button-reset js-button" data-id="11007">
+          <div class="c-card">
+            <img class="js-foto3 c-card-photo" src="" alt="Avatar" style="width: 100%" />
+            <div class="c-card-text">
+              <div>
+                <h2 class="c-card-title u-mb-clear js-naam3">Cocktail 4</h2>
+                <p class="c-card-description u-mb-clear js-ingredientsdescription3">Ingredient 1</p>
+              </div>
+              <div class="c-card-alcohol">
+                <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic" />
+                <!-- Alcohol free caption -->
+                <!-- <p class="c-card-caption u-mb-clear u-hidden js-alcoholcaption">0.0%</p> -->
+              </div>
+            </div>
           </div>
-        </div>
-      </button>
+        </button>
 
-      <!--Coktail 5 -->
-      <button class="js-card4 o-button-reset js-button" data-id="11007">
-        <div class="c-card">
-          <img class="js-foto4 c-card-photo" src="" alt="Avatar" style="width: 100%" />
-          <div class="c-card-text">
-            <h2 class="c-card-title u-mb-clear  js-naam4">Cocktail 5</h2>
-            <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic">
-
+        <!--Coktail 5 -->
+        <button class="js-card4 o-button-reset js-button" data-id="11007">
+          <div class="c-card">
+            <img class="js-foto4 c-card-photo" src="" alt="Avatar" style="width: 100%" />
+            <div class="c-card-text">
+              <div>
+                <h2 class="c-card-title u-mb-clear js-naam4">Cocktail 5</h2>
+                <p class="c-card-description u-mb-clear js-ingredientsdescription4">Ingredient 1</p>
+              </div>
+              <div class="c-card-alcohol">
+                <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic" />
+                <!-- Alcohol free caption -->
+                <!-- <p class="c-card-caption u-mb-clear u-hidden js-alcoholcaption">0.0%</p> -->
+              </div>
+            </div>
           </div>
-        </div>
-      </button>
+        </button>
 
-      <!--Coktail 6 -->
-      <button class="js-card5 o-button-reset js-button" data-id="11007">
-        <div class="c-card">
-          <img class="js-foto5 c-card-photo" src="" alt="Avatar" style="width: 100%" />
-          <div class="c-card-text">
-            <h2 class="c-card-title u-mb-clear  js-naam5">Cocktail 6</h2>
-            <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic">
-
+        <!--Coktail 6 -->
+        <button class="js-card5 o-button-reset js-button" data-id="11007">
+          <div class="c-card">
+            <img class="js-foto5 c-card-photo" src="" alt="Avatar" style="width: 100%" />
+            <div class="c-card-text">
+              <div>
+                <h2 class="c-card-title u-mb-clear js-naam5">Cocktail 6</h2>
+                <p class="c-card-description u-mb-clear js-ingredientsdescription5">Ingredient 1</p>
+              </div>
+              <div class="c-card-alcohol">
+                <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic" />
+                <!-- Alcohol free caption -->
+                <!-- <p class="c-card-caption u-mb-clear u-hidden js-alcoholcaption">0.0%</p> -->
+              </div>
+            </div>
           </div>
-        </div>
-      </button>
+        </button>
 
-      <!--Coktail 7 -->
-      <button class="js-card6 o-button-reset js-button" data-id="11007">
-        <div class="c-card">
-          <img class="js-foto6 c-card-photo" src="" alt="Avatar" style="width: 100%" />
-          <div class="c-card-text">
-            <h2 class="c-card-title u-mb-clear  js-naam6">Cocktail 7</h2>
-            <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic">
-
+        <!--Coktail 7 -->
+        <button class="js-card6 o-button-reset js-button" data-id="11007">
+          <div class="c-card">
+            <img class="js-foto6 c-card-photo" src="" alt="Avatar" style="width: 100%" />
+            <div class="c-card-text">
+              <div>
+                <h2 class="c-card-title u-mb-clear js-naam6">Cocktail 7</h2>
+                <p class="c-card-description u-mb-clear js-ingredientsdescription6">Ingredient 1</p>
+              </div>
+              <div class="c-card-alcohol">
+                <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic" />
+                <!-- Alcohol free caption -->
+                <!-- <p class="c-card-caption u-mb-clear u-hidden js-alcoholcaption">0.0%</p> -->
+              </div>
+            </div>
           </div>
-        </div>
-      </button>
+        </button>
 
-      <!--Coktail 8  test -->
+        <!--Coktail 8  test -->
 
-      <button class="js-card7 o-button-reset js-button" data-id="11007">
-        <div class="c-card">
-          <img class="js-foto7 c-card-photo" src="" alt="Avatar" style="width: 100%" />
-          <div class="c-card-text">
-            <h2 class="c-card-title js-naam7">Cocktail 8</h2>
-            <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic">
-
+        <button class="js-card7 o-button-reset js-button" data-id="11007">
+          <div class="c-card">
+            <img class="js-foto7 c-card-photo" src="" alt="Avatar" style="width: 100%" />
+            <div class="c-card-text">
+              <div>
+                <h2 class="c-card-title u-mb-clear js-naam7">Cocktail 8</h2>
+                <p class="c-card-description u-mb-clear js-ingredientsdescription7">Ingredient 1</p>
+              </div>
+              <div class="c-card-alcohol">
+                <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic" />
+                <!-- Alcohol free caption -->
+                <!-- <p class="c-card-caption u-mb-clear u-hidden js-alcoholcaption">0.0%</p> -->
+              </div>
+            </div>
           </div>
-        </div>
-      </button>
+        </button>
 
-      <!-- Coktail 9  -->
-      <button class="js-card8 o-button-reset js-button" data-id="11007">
-        <div class="c-card">
-          <img class="js-foto8" src="" alt="Avatar" style="width: 100%" />
-          <div class="c-card-text">
-            <h2 class="c-card-title u-mb-clear  js-naam8">Cocktail 9</h2>
-            <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic">
-
+        <!-- Coktail 9  -->
+        <button class="js-card8 o-button-reset js-button" data-id="11007">
+          <div class="c-card">
+            <img class="js-foto8" src="" alt="Avatar" style="width: 100%" />
+            <div class="c-card-text">
+              <div>
+                <h2 class="c-card-title u-mb-clear js-naam8">Cocktail 9</h2>
+                <p class="c-card-description u-mb-clear js-ingredientsdescription8">Ingredient 1</p>
+              </div>
+              <div class="c-card-alcohol">
+                <img class="c-card-icon js-alcoholicon" src="\Assets\Non-alcoholic.svg" alt="Non alcoholic" />
+                <!-- Alcohol free caption -->
+                <!-- <p class="c-card-caption u-mb-clear u-hidden js-alcoholcaption">0.0%</p> -->
+              </div>
+            </div>
           </div>
-        </div>
-      </button>
-    </div>
-  </main>
+        </button>
+      </div>
+    </main>
 
-  <!-- MODAL -->
-  <aside>
-    <div class="c-model js-modal">
-      <div class="js-modal-content c-model-container">
-        <header class="c-model-header">
-          <!-- <div class="o-layout__item c-model-titel">
+    <!-- MODAL -->
+    <aside>
+      <div class="c-model js-modal">
+        <div class="js-modal-content c-model-container">
+          <header class="c-model-header">
+            <!-- <div class="o-layout__item c-model-titel">
               <h2 class="u-mb-clear">Recipe</h2>
             </div> -->
-          <button class="o-button-reset c-model-flexitem_cross js-modal-close">
-            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
-              <path d="M0 0h24v24H0V0z" fill="none" />
-              <path
-                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
-            </svg>
-          </button>
-        </header>
-        <main class="">
-          <div class="o-row">
+            <button class="o-button-reset c-model-flexitem_cross js-modal-close">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px">
+                <path d="M0 0h24v24H0V0z" fill="none" />
+                <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z" />
+              </svg>
+            </button>
+          </header>
+          <main class="o-row">
             <!--Photo + tile of cockatil-->
             <section class="o-section--lg">
               <div class="o-layout o-layout--gutter">
@@ -202,20 +261,10 @@
                       <button class="js-ingredient-button o-button-reset c-modal-buttons">
                         <p class="c-modelcontent__midtitle">Ingredients</p>
                       </button>
-                   
+
                       <button class="js-step-button o-button-reset c-modal-buttons">
                         <p class="c-modelcontent__midtitle">Steps</p>
                       </button>
-
-<!--                       
-                      <input class="o-hide-accessible c-option c-option--hidden" type="radio" id="a" name="menue"
-                        value="ingredients" checked />
-                      <label class="c-modelcontent__midtitle" for="a">Ingredients
-                      </label>
-                      <input class="o-hide-accessible c-option c-option--hidden" type="radio" id="b" name="menue"
-                        value="info" />
-                      <label class="c-modelcontent__midtitle" for="b">Steps
-                      </label> -->
                     </div>
                     <!--Ingredient section-->
                     <section class="js-modal-ingredients">
@@ -225,7 +274,7 @@
                       <!--Cocktail strength-->
                       <h2>Cocktail strength</h2>
                       <div class="c-percentagebar">
-                        <div class="c-percentagebar-loading js-modal-percentage-bar" style="width:25%">25%</div>
+                        <div class="c-percentagebar-loading js-modal-percentage-bar" style="width: 25%">25%</div>
                       </div>
                       <p><b class="js-cocktail-strength">VERRY STRONG!</b></p>
                     </section>
@@ -237,12 +286,9 @@
                 </div>
               </div>
             </section>
-
-          </div>
-        </main>
+          </main>
+        </div>
       </div>
-    </div>
-  </aside>
-</body>
-
+    </aside>
+  </body>
 </html>
