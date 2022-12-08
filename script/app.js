@@ -1,7 +1,7 @@
 /* ELEMENTS */
 
 let rawIngredinetsList;
-var main, modalTitle, modalImage, modalIngredients, ingredientsList, modalInfo, cocktailStrength, ingredientButton, stepButton, foto, modal, closeButton;
+var main, content, modalTitle, modalImage, modalIngredients, ingredientsList, modalInfo, cocktailStrength, ingredientButton, stepButton, foto, modal, closeButton;
 
 /* DATA ANA FUNCTIONS */
 checkAlcohol = (ingredientsCocktail) => {
@@ -61,7 +61,6 @@ listenToClose = (modal) => {
     document.querySelectorAll('.js-button').forEach((input) => {
       input.tabIndex = 1;
     });
-
   });
 
   // Listen to close button or click outside modal
@@ -75,7 +74,6 @@ listenToClose = (modal) => {
       document.querySelectorAll('.js-button').forEach((input) => {
         input.tabIndex = 1;
       });
-
     }
   });
 
@@ -89,10 +87,8 @@ listenToClose = (modal) => {
       document.querySelectorAll('.js-button').forEach((input) => {
         input.tabIndex = 1;
       });
-
     }
   });
-
 };
 
 /* SHOW DATA IN MODAL */
@@ -194,7 +190,6 @@ showDataInModal = async (id) => {
 
   // Set focus to close button
   closeButton.focus();
-
 };
 
 /* LISTEN TO CLICK ON COCKTAIL */
@@ -217,7 +212,6 @@ listenToCard = () => {
 
       // Show data in modal
       showDataInModal(id);
-
     });
   }
 };
@@ -227,7 +221,7 @@ listenToRefresh = () => {
   // Add event listener to all refresh buttons
   const refreshButtons = document.querySelectorAll('.js-refresh-button');
   // Event listener
-  for (const button of refreshButtons) { 
+  for (const button of refreshButtons) {
     button.addEventListener('click', async () => {
       // Add is rotating class
       button.classList.add('is-rotating');
@@ -235,27 +229,23 @@ listenToRefresh = () => {
       let data = await getCocktails();
       showResult(data);
     });
-    button.addEventListener("animationend", () => {
-      console.log("animationend");
-      button.classList.remove("is-rotating");
+    button.addEventListener('animationend', () => {
+      console.log('animationend');
+      button.classList.remove('is-rotating');
     });
   }
-}
+};
 
 /* SHOW DATA IN GRID */
 showResult = async (data) => {
-  // Remove is rotating class
+  let innerHtml = '';
+  // For each cocktail in data
+  for (var i = 0; i < data.drinks.length; i++) {
 
-
-  for (var i = 0; i < 9; i++) {
     // Define drink
-    let drink = data.drinks[i];
+    const drink = data.drinks[i];
 
-    // Set ingredients
-    ingredients = document.querySelector(`.js-ingredientsdescription${i}`);
-
-    // Set ingredients
-
+    // Date
     let ingredientsCocktail = [];
     for (var a = 1; a < 16; a++) {
       if (drink[`strIngredient${a}`] != null) {
@@ -267,48 +257,52 @@ showResult = async (data) => {
     }
 
     // Get list of alcohol ingredients
-    let array = checkAlcohol(ingredientsCocktail);
-
+    let arrayAlcohol = checkAlcohol(ingredientsCocktail);
+    let resultIngredients = '';
     // Check if array is empty otherwise hide ingredients
-    if (array.length == 0) {
-      ingredients.innerHTML = 'No alcohol';
+    if (arrayAlcohol.length == 0) {
+      resultIngredients = 'No alcohol';
     } else {
       // Set only first 3 ingredients
-      ingredients.innerHTML = array.slice(0, 3).join(', ');
+      resultIngredients = arrayAlcohol.slice(0, 3).join(', ');
     }
-    
-    // Set photo url from API as src and alt 
-    foto = document.querySelector(`.js-foto${i}`);
-    foto.src = drink.strDrinkThumb;
-    foto.alt = drink.strDrink;
 
-    // Set name from API as text
-    const name = document.querySelector(`.js-naam${i}`);
-    name.innerHTML = drink.strDrink;
-
-    // Get card and set data attribute
-    const card = document.querySelector(`.js-card${i}`);
-    card.setAttribute('data-id', drink.idDrink);
-
-    // Get icon
-    const icon = document.querySelectorAll(`.js-alcoholicon`);
-
-    // Get all js-alcoholcaption elements
-    // const caption = document.querySelectorAll(`.js-alcoholcaption`);
-    // caption[i].classList.add('u-hidden');
-    // caption[i].classList.remove('u-hidden');
-
+    // Icon
     // Check if drink is alcoholic
+    let icon = '';
     if (drink.strAlcoholic == 'Alcoholic' || drink.strAlcoholic == 'Optional alcohol') {
       // Set img sr
-      icon[i].src = '/Assets/Alcoholic.svg';
-      
+      icon = '/Assets/Alcoholic.svg';
     } else {
       // Set img src
-      icon[i].src = '/Assets/Non-alcoholic.svg';
+      icon = '/Assets/Non-alcoholic.svg';
       // If drink is non-alcoholic, display caption
     }
+
+    // Set inner html of content
+    innerHtml +=
+      ` 
+        <button class="js-card${i} o-button-reset js-button" data-id="${drink.idDrink}">
+        <div class="c-card">
+          <img class="js-foto0 c-card-photo" src="${drink.strDrinkThumb}" alt="${drink.strDrink}" />
+          <div class="c-card-text">
+            <div>
+              <h2 class="c-card-title u-mb-clear js-naam${i}">${drink.strDrink}</h2>
+              <p class="c-card-description u-mb-clear js-ingredientsdescription0">${resultIngredients}</p>
+            </div>
+            <div class="c-card-alcohol">
+              <img class="c-card-icon js-alcoholicon" src="${icon}" alt="Non alcoholic" />
+              <!-- Alcohol free caption -->
+              <!-- <p class="c-card-caption u-mb-clear u-hidden js-alcoholcaption">0.0%</p> -->
+            </div>
+          </div>
+        </div>
+      </button>    
+      `;
   }
+
+  // Set inner html of content
+  content.innerHTML = innerHtml;
 };
 
 /* API DATA */
@@ -347,6 +341,7 @@ document.addEventListener('DOMContentLoaded', async function () {
   stepButton = document.querySelector('.js-step-button');
   closeButton = document.querySelector('.js-modal-close');
   main = document.querySelector('.js-main');
+  content = document.querySelector('.js-data-cocktails');
 
   // Listen to refresh button
   listenToRefresh();
@@ -356,5 +351,4 @@ document.addEventListener('DOMContentLoaded', async function () {
     showResult(data);
     listenToCard();
   }
-
 });
