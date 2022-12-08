@@ -160,7 +160,7 @@ showDataInModal = async (id) => {
     modalInfo.classList.remove('u-hidden');
     // Set opacity to 1
     stepButton.style.opacity = 1;
-    ingredientButton.style.opacity = '0.5';
+    ingredientButton.style.opacity = 0.2;
     // Set info
     modalInfo.innerHTML = data.drinks[0].strInstructions;
     // Hide ingredients
@@ -175,7 +175,7 @@ showDataInModal = async (id) => {
     modalInfo.classList.add('u-hidden');
     // Set opacity from child to 1
     ingredientButton.style.opacity = 1;
-    stepButton.style.opacity = 0.5;
+    stepButton.style.opacity = 0.2;
     // Show ingredients
     // Show ingredients
     let ingredients = '';
@@ -230,10 +230,14 @@ listenToRefresh = () => {
   for (const button of refreshButtons) { 
     button.addEventListener('click', async () => {
       // Add is rotating class
-      await button.classList.add('is-rotating');
+      button.classList.add('is-rotating');
       // Remove is rotating class
       let data = await getCocktails();
       showResult(data);
+    });
+    button.addEventListener("animationend", () => {
+      console.log("animationend");
+      button.classList.remove("is-rotating");
     });
   }
 }
@@ -241,10 +245,7 @@ listenToRefresh = () => {
 /* SHOW DATA IN GRID */
 showResult = async (data) => {
   // Remove is rotating class
-  const refreshButtons = document.querySelectorAll('.js-refresh-button');
-  for (const button of refreshButtons) {
-    button.classList.remove('is-rotating');
-  }
+
 
   for (var i = 0; i < 9; i++) {
     // Define drink

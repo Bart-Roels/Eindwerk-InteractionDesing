@@ -280,7 +280,7 @@ input::placeholder {
   /* Set element over other elements */
   z-index: 50;
   /* Margin under border */
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
   /* Stick to top */
   position: sticky;
   top: 0;
