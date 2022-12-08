@@ -149,6 +149,7 @@ showDataInModal = async (id) => {
 
   // Set opacity to 1
   ingredientButton.style.opacity = 1;
+  stepButton.style.opacity = 0.2;
 
   // Listen for click on step button
   stepButton.addEventListener('click', () => {
@@ -195,6 +196,7 @@ showDataInModal = async (id) => {
 /* LISTEN TO CLICK ON COCKTAIL */
 listenToCard = () => {
   const buttons = document.querySelectorAll('.js-button');
+  console.log(buttons);
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', (e) => {
       // Get data-id from card
@@ -216,6 +218,10 @@ listenToCard = () => {
   }
 };
 
+// Make f
+
+
+
 /* LISTEN TO REFRESH BUTTON */
 listenToRefresh = () => {
   // Add event listener to all refresh buttons
@@ -227,6 +233,11 @@ listenToRefresh = () => {
       button.classList.add('is-rotating');
       // Remove is rotating class
       let data = await getCocktails();
+
+      // Show loading
+      // showLoading();
+
+      // Show data
       showResult(data);
     });
     button.addEventListener('animationend', () => {
@@ -238,6 +249,26 @@ listenToRefresh = () => {
 
 /* SHOW DATA IN GRID */
 showResult = async (data) => {
+
+  // Set 8 ghost cards
+  let ghostCards = '';
+  for (var i = 0; i < 8; i++) {
+    ghostCards += `        <div class="c-card">
+    <div class="c-card-photo--ghost"></div>
+    <div class="c-card-text--ghost">
+      <div>
+        <h2 class="c-card-title u-mb-clear "></h2>
+        <p class="c-card-description u-mb-clear"></p>
+      </div>
+    </div>
+  </div>`;
+  }
+
+  // Set cards in container
+  content.innerHTML = ghostCards;
+
+
+
   let innerHtml = '';
   // For each cocktail in data
   for (var i = 0; i < data.drinks.length; i++) {
@@ -301,8 +332,12 @@ showResult = async (data) => {
       `;
   }
 
+
   // Set inner html of content
   content.innerHTML = innerHtml;
+
+
+  listenToCard();
 };
 
 /* API DATA */
